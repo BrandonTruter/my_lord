@@ -1,0 +1,164 @@
+-------------------------
+        Devise
+-------------------------
+
+rails generate devise:install
+
+The generator will install an initializer which describes ALL Devise's configuration options and you MUST take a look at it. When you are done, you are ready to add Devise to any of your models using the generator:
+
+rails generate devise MODEL
+
+Replace MODEL with the class name used for the application’s users (it’s frequently `User` but could also be `Admin`). This will create a model (if one does not exist) and configure it with default Devise modules. The generator also configures your `config/routes.rb` file to point to the Devise controller.
+
+Next, check the MODEL for any additional configuration options you might want to add, such as confirmable or lockable. If you add an option, be sure to inspect the migration file (created by the generator if your ORM supports them) and uncomment the appropriate section.  For example, if you add the confirmable option in the model, you'll need to uncomment the Confirmable section in the migration. Then run `rake db:migrate`
+
+Next, you need to set up the default URL options for the Devise mailer in each environment. Here is a possible configuration for `config/environments/development.rb`:
+
+```ruby
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+-------------------------
+      Active Admin
+-------------------------
+
+rails g active_admin:install User
+rails g active_admin:assets
+
+rake db:migrate
+rails server
+
+Visit `http://localhost:3000/admin` and log in as the default user:
+
+* __User__: admin@example.com
+* __Password__: password
+
+rails generate active_admin:resource MyModel
+
+
+-------------------------
+        Rails g
+-------------------------
+
+
+Rails:
+  assets
+  controller
+  generator
+  helper
+  inherited_resources_controller
+  integration_test
+  jbuilder
+  job
+  mailer
+  migration
+  model
+  resource
+  responders_controller
+  scaffold
+  scaffold_controller
+  task
+
+ActiveAdmin:
+  active_admin:assets
+  active_admin:devise
+  active_admin:install
+  active_admin:page
+  active_admin:resource
+
+ActiveRecord:
+  active_record:devise
+  active_record:easy_roles
+
+Coffee:
+  coffee:assets
+
+DelayedJob:
+  delayed_job
+
+Devise:
+  devise
+  devise:controllers
+  devise:install
+  devise:views
+
+EasyRoles:
+  easy_roles
+
+FactoryGirl:
+  factory_girl:model
+
+Formtastic:
+  formtastic:form
+  formtastic:install
+
+Gritter:
+  gritter:locale
+
+Js:
+  js:assets
+
+Kaminari:
+  kaminari:config
+  kaminari:views
+
+Mongoid:
+  mongoid:devise
+
+Paperclip:
+  paperclip
+
+Responders:
+  responders:install
+
+Rspec:
+  rspec:controller
+  rspec:feature
+  rspec:helper
+  rspec:install
+  rspec:integration
+  rspec:job
+  rspec:mailer
+  rspec:model
+  rspec:observer
+  rspec:scaffold
+  rspec:view
+
+TestUnit:
+  test_unit:controller
+  test_unit:generator
+  test_unit:helper
+  test_unit:integration
+  test_unit:job
+  test_unit:mailer
+  test_unit:model
+  test_unit:plugin
+  test_unit:scaffold
+
+WickedPdf:
+  wicked_pdf
+
+
+
+
+-------------------------
+        a
+-------------------------
+
+
+
+
+-------------------------
+        a
+-------------------------
+
+
+
+
+-------------------------
+        a
+-------------------------
+
+
+
+
