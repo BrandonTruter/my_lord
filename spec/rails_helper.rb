@@ -4,6 +4,9 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'capybara/rails'
+require 'shoulda/matchers'
+require 'factory_girl'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -18,7 +21,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -47,4 +50,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+   # config.render_views = true
+   
+   # config.include Capybara::FeatureHelpers, type: :feature
+   # config.include Capybara::DSL, type: :request
+   # config.include RSpec::Rails::RequestExampleGroup, type: :request
+   # config.include RSpec::Rails::ModelExampleGroup, :type => :model
+   # config.include RSpec::Rails::ControllerExampleGroup, :type => :controller
 end

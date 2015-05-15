@@ -1,0 +1,2471 @@
+
+expect(page).to have_selector(".header .username", :text => "jdoe")
+expect(page).to have_text("Widget was successfully created.")
+
+bundle exec rspec spec/requests/authentications_spec.rb
+bundle exec rspec spec/requests/user_authentications_spec.rb
+bundle exec rspec spec/requests/users_spec.rb
+
+bundle exec rspec spec/features/user_sign_in_spec.rb
+
+
+$ bundle exec rspec -fd
+
+screenshot_and_save_page
+```
+
+Or for screenshot only, which will automatically open the image.
+
+```ruby
+screenshot_and_open_image
+-----------------------------------------------------------------------------
+RAKE
+-----------------------------------------------------------------------------
+
+rake -T | grep spec
+rake rails:update
+rake db:migrate RAILS_ENV=test
+rake test:models TEST_OPTS="--verbose"   
+rake test:units  same as rake  test:models
+rake test:functionals  same as rake  test:controllers                             
+rake test:helpers and rake test:mailers only work with new folder structure
+
+-----------------------------------------------------------------------------
+GEMS
+-----------------------------------------------------------------------------
+gem 'actionpack-xml_parser'
+gem 'actionpack-action_caching', '~>1.0.0'
+gem 'actionpack-page_caching', '~>1.0.0'
+gem 'actionpack-xml_parser', '~>1.0.0'
+gem 'actionview-encoded_mail_to', '~>1.0.4'
+gem 'activerecord-session_store', '~>0.0.1'
+gem 'activeresource', '~>4.0.0'
+gem 'protected_attributes', '~>1.0.1'
+gem 'rails-observers', '~>0.1.1'
+gem 'rails-perftest', '~>0.0.2'
+gem 'rubyzip', '~>0.9.9'
+
+
+
+-----------------------------------------------------------------------------
+capybara
+-----------------------------------------------------------------------------
+
+
+visit('/projects')
+visit(post_comments_path(post))
+
+expect(current_path).to eq(post_comments_path(post))
+
+click_link('id-of-link')
+click_link('Link Text')
+click_button('Save')
+click_on('Link Text') # clicks on either links or buttons
+click_on('Button Value')
+
+fill_in('First Name', :with => 'John')
+fill_in('Password', :with => 'Seekrit')
+fill_in('Description', :with => 'Really Long Text...')
+choose('A Radio Button')
+check('A Checkbox')
+uncheck('A Checkbox')
+attach_file('Image', '/path/to/image.jpg')
+select('Option', :from => 'Select Box')
+
+page.has_selector?('table tr')
+page.has_selector?(:xpath, '//table/tr')
+
+page.has_xpath?('//table/tr')
+page.has_css?('table tr.foo')
+page.has_content?('foo')
+
+expect(page).to have_selector('table tr')
+expect(page).to have_selector(:xpath, '//table/tr')
+
+expect(page).to have_xpath('//table/tr')
+expect(page).to have_css('table tr.foo')
+expect(page).to have_content('foo')
+
+find_field('First Name').value
+find_link('Hello').visible?
+find_button('Send').click
+
+find(:xpath, "//table/tr").click
+find("#overlay").find("h1").click
+all('a').each { |a| a[:href] }
+
+find('#navigation').click_link('Home')
+expect(find('#navigation')).to have_button('Sign out')
+
+within("li#employee") do
+  fill_in 'Name', :with => 'Jimmy'
+end
+
+within(:xpath, "//li[@id='employee']") do
+  fill_in 'Name', :with => 'Jimmy'
+end
+
+within_fieldset('Employee') do
+  fill_in 'Name', :with => 'Jimmy'
+end
+
+within_table('Employee') do
+  fill_in 'Name', :with => 'Jimmy'
+end
+
+click_link("Password") # also matches "Password confirmation"
+Capybara.exact = true
+click_link("Password") # does not match "Password confirmation"
+click_link("Password", exact: false) # can be overridden
+
+click_link('foo')
+click_link('bar')
+expect(page).to have_content('baz')
+
+expect(find('#sidebar').find('h1')).to have_content('Something')
+
+expect(page).to have_selector(".header .username", :text => "jdoe")
+
+
+capybara-feature_helpers
+capybara-page-dsl
+capybara-page-object
+
+capybara-rails
+capybara_rails
+watir-capybara-helpers
+capybara-js_finders
+
+*** GEMS ***
+
+appium_capybara (1.2.1)
+bbc-capybara (1.1.2)
+bbc-capybara-mechanize (0.4.5)
+bbc-capybara-mechanize-with-proxy (0.3.1)
+bitium-capybara-webkit (1.1.1)
+bjeanes-capybara (0.3.2)
+capybara (2.4.4)
+capybara-accessible (0.2.1)
+capybara-angular (0.1.1)
+capybara-animate (0.1.0)
+capybara-bamboo-client (0.0.1)
+capybara-basic_auth_helper (0.0.1)
+capybara-bootstrap-datepicker (0.0.8)
+capybara-celerity (0.0.1)
+capybara-console (0.0.4)
+capybara-culerity (0.0.1)
+capybara-email (2.4.0)
+capybara-ember (0.0.1)
+capybara-ember-inspector (1.6.2)
+capybara-envjs (0.4.0)
+capybara-envjs-fixes (0.0.5)
+capybara-extensions (0.4.0)
+capybara-facebook (0.1.0)
+capybara-facebook-macros (0.1)
+capybara-faraday (0.1.1)
+capybara-feature_helpers (0.0.2)
+capybara-firebug (2.1.0)
+capybara-grope (0.1.0)
+capybara-harness (0.0.16)
+capybara-ios-emulation-driver (0.0.5)
+capybara-iphone (0.2.0)
+capybara-jasmine (0.1.0)
+capybara-java_script_lint (0.0.1)
+capybara-js_finders (0.4.3)
+capybara-json (0.4.0)
+capybara-mechanize (1.4.0)
+capybara-minitest (0.9.2)
+capybara-ng (0.0.4)
+capybara-on-crack (0.0.1)
+capybara-padrino (0.0.1)
+capybara-page-dsl (0.0.1)
+capybara-page-object (0.6.1)
+capybara-pageobject (0.1.2)
+capybara-paparazzi (0.0.4)
+capybara-profile (0.0.2)
+capybara-puma (1.0.1)
+capybara-rack_test_with_server (0.0.3)
+capybara-rails (0.0.2)
+capybara-rails-2-2 (0.4.1.1)
+capybara-remote-viewer (0.0.2)
+capybara-screenshot (1.0.9)
+capybara-screenshot-nocolor (1.0.5)
+capybara-select2 (0.0.8)
+capybara-selenium (0.0.6)
+capybara-selenium-remote (0.0.1)
+capybara-slow_finder_errors (0.1.2)
+capybara-table (0.1.0)
+capybara-typhoeus (0.3.7)
+capybara-user_agent (0.0.3)
+capybara-vue (0.0.1)
+capybara-webkit (1.5.0)
+capybara-webkit-remote (0.0.4)
+capybara-wheel (0.0.7)
+capybara-workflows (0.1.0)
+capybara_minitest_spec (1.0.5)
+capybara_rails (0.0.3)
+capybara_screenshot_idobata (0.0.2)
+capybara_select2 (0.0.2)
+capybara_sfdc (0.0.1)
+capybara_wysihtml5 (0.0.1)
+david-capybara (0.3.9.1)
+dkastner-capybara-wheel (0.1.0)
+filet-capybara (0.1.0)
+flood-capybara (0.0.4)
+frameworks-capybara (2.3.1)
+h13ronim-capybara (0.3.0.1)
+imseng-capybara-webkit (0.12.1)
+intentmedia-capybara-webkit (0.7.2.4)
+katzil-capybara (0.3.8)
+minitest-capybara (0.7.1)
+minitest-capybara-unit (0.0.1)
+minitest-rails-capybara (2.1.1)
+nimboids-capybara (1.1.2)
+otherinbox-capybara-webkit (0.12.0.1)
+pr0d1r2-capybara (0.3.7)
+rcarvalho-capybara (0.4.1.2)
+rspec-capybara-simple_form-rails (0.0.4)
+ryansch-capybara-mechanize (1.0.1)
+test-unit-capybara (1.0.4)
+watir-capybara-helpers (0.0.1)
+yannp-capybara (0.4.0)
+
+              NEW
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+
+In my spec/support/macros.rb I added:
+
+module RequestMacros
+  include Warden::Test::Helpers
+
+  # for use in request specs
+  def sign_in_as_a_user
+    @user ||= FactoryGirl.create :confirmed_user
+    login_as @user
+  end
+end
+
+And then included that in RSpec's config in spec_helper.rb:
+
+RSpec.configure do |config|
+  config.include RequestMacros, :type => :request
+end
+
+And then in the request specs themselves:
+
+describe "index" do
+  it "redirects to home page" do
+    sign_in_as_a_user 
+    visit "/url"
+    page.should_not have_content 'content'
+  end
+end
+
+================================
+
+The all method doesn't take parameters in Rails 4.
+
+TitleProviderGroupName.all
+
+has to be changed to
+
+TitleProviderGroupName.order(:name)
+
+================================
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerMacros, :type => :controller
+	….
+#support/controller_macros.rb
+module ControllerMacros    
+  def login_user
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @user = Factory.create(:user)
+    sign_in @user
+  end
+end
+	….
+#requests/some_spec.rb
+require 'spec_helper'
+describe "GET /guides/edit" do
+  before(:each) do
+    login_user     
+  end
+end
+	….
+and if that fails - maybe it just can't find @request - in which case, pass it as a variable to login_user
+	…
+# spec/support/devise.rb
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+end
+================================
+
+Add a spec/support/devise.rb file with this content:
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+end
+
+================================
+
+subject { page }
+
+describe 'should be able to log in' do
+  before do
+    visit '/users/sign_in'
+    user = FactoryGirl.create(:admin)
+    #user.add_role :admin
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: user.password
+    click_on 'Sign in'
+  end
+  it { should have_link 'Logout' }
+end
+...
+
+================================
+
+config.include Devise::TestHelpers, :type => :controller
+
+config.include Devise::TestHelpers, :type => :view
+
+config.include Devise::TestHelpers, :type => :helper
+
+config.include RspecAuthentication, :type => :controller
+
+  config.include RspecAuthentication, :type => :view
+
+  config.include RspecAuthentication, :type => :helper
+
+require 'devise/test_helpers'
+
+before(:each) do
+  request.env['devise.mapping'] = Devise.mappings[:user]
+end
+================================
+
+let!(:ci_user) { FactoryGirl.create(:user, name: "configuration engineer", password: "password", password_confirmation: "password"  ) }
+
+before do 
+    visit login_path
+    fill_in "Name", with: "configuration engineer"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+================================
+
+describe "security", :type => :feature do
+  it "signs users in" do
+    visit "/sessions/new"
+    fill_in "username", :with => "user"
+    fill_in "password", :with => "pass"
+    click_button "Sign In"
+
+    page.should have_content('Login Successful')
+  end
+end
+
+================================
+
+FactoryGirl.define do
+  factory :user do
+    sequence( :first_name )  { |n| "FirstName#{n}" }
+    sequence( :last_name )  { |n| "LastName#{n}" }
+    sequence( :email ) { |n| "foo#{n}@example.com" }
+    password              'foobar'
+    password_confirmation 'foobar'
+    created_at            Time.now
+    updated_at            Time.now
+  end
+end
+
+
+describe 'log in' do
+  before { visit root_path }
+    subject { page }
+
+    describe 'should be able to log in' do
+      before do
+        user = FactoryGirl.create(:user)
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
+        click_on 'Log in'
+      end
+      it { should have_link 'Log out' }
+    end
+  end
+end
+
+================================
+
+module AuthenticationHelpers
+	def login(user)
+	  post login_path, :login => user.login, :password => 'password'
+	end
+end
+
+require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/authentication_helpers'
+
+
+describe "Messages" do
+  include AuthenticationHelpers
+
+  describe "GET admin/messages" do
+    before(:each) do
+      @current_user = Factory :super_admin
+      login(@current_user)
+    end
+ ….
+
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+
+  helper_method :current_user
+  helper_method :logged_in?
+
+  protected
+
+  def current_user  
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]  
+  end
+
+  def logged_in?
+    !current_user.nil?
+  end
+end
+
+
+include Warden::Test::Helpers
+
+
+# file: spec/requests_helper.rb
+def login(user)
+  post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
+end
+
+================================
+
+Have a look at ControllerMacros
+
+module ControllerMacros
+   def login_user
+    before(:each) do
+      user = FactoryGirl.create(:user)
+      @current_user = user
+      sign_in user
+    end
+  end
+end
+
+spec/spec_helper.rb
+
+RSpec.configure do |config|
+  ....
+  config.extend ControllerMacros, :type => :controller
+end
+
+spec/controllers/some_controller_spec.rb
+
+require File.dirname(__FILE__) + '/../spec_helper'
+
+describe SomeController, "index" do
+    context "for authenticated users" do
+        login_user
+        ...
+    end
+end
+
+
+================================
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, :type => :view
+end
+
+
+================================
+
+
+describe User do
+  describe '#locked?' do
+    
+    before :each do
+      subject.should_receive(:current_plan).and_return plan
+    end
+    
+    context 'when expiring today' do
+      let(:plan) { stub(:expiry => Date.today) }
+      it 'should be false' do
+        subject.should_not be_locked
+      end
+    end
+    
+    context 'when expired yesterday' do
+      let(:plan) { stub(:expiry => Date.yesterday) }
+      it 'should be true' do
+        subject.should be_locked
+      end
+    end
+    
+  end
+end
+
+================================
+
+
+require 'capybara'
+require 'capybara/dsl'
+
+Capybara.default_driver = :webkit
+
+module MyModule
+  include Capybara::DSL
+
+  def login!
+    within("//form[@id='session']") do
+      fill_in 'Email', :with => 'user@example.com'
+      fill_in 'Password', :with => 'password'
+    end
+    click_button 'Sign in'
+  end
+end
+
+================================
+
+module AuthenticationHelpers
+  def login_as(user)
+    # ...
+  end
+end
+
+module UserHelpers
+  def users(username)
+    # ...
+  end
+end
+
+RSpec.configure do |config|
+  config.include(UserHelpers) # included in all modules
+  config.include(AuthenticationHelpers, :type => :request)
+end
+
+describe "edit profile", :type => :request do
+  it "can be viewed by owning user" do
+    login_as users(:jdoe)
+    get "/profiles/jdoe"
+    assert_select ".username", :text => 'jdoe'
+  end
+end
+
+
+================================
+
+
+RSpec.configure do |rspec|
+  rspec.raise_errors_for_deprecations!
+end
+
+================================
+
+RSpec.configure do |config|
+  config.alias_example_to :pending, :pending => true
+end
+
+# This lets you do this:
+
+describe Thing do
+  pending "does something" do
+    thing = Thing.new
+  end
+end
+
+# ... which is the equivalent of
+
+describe Thing do
+  it "does something", :pending => true do
+    thing = Thing.new
+  end
+end
+
+================================
+
+config.expect_with :rspec
+config.expect_with :test_unit
+config.expect_with :minitest
+config.expect_with :rspec, :minitest
+config.expect_with OtherExpectationFramework
+
+config.expect_with OtherExpectationFramework do |custom_config|
+  custom_config.custom_setting = true
+end
+
+================================
+
+RSpec.configure do |config|
+  config.extend(UiHelpers, :type => :request)
+end
+
+================================
+
+
+
+You can create a macro (/spec/support/controller_macros.rb) and write something like :
+
+module ControllerMacros
+  def login_user
+    before(:each) do
+      @request.env["devise.mapping"] = :user
+      @user = Factory(:user)
+      sign_in @user
+    end
+  end
+end
+
+You can also include any CanCan attributes you want. Then, in your spec :
+
+describe YourController do
+    login_user
+
+    it "should ..." do
+
+    end
+
+
+================================
+
+RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+end
+
+user = FactoryGirl.create(:user)
+login_as(user, :scope => :user)
+
+FactoryGirl.define do
+  factory :user do
+    email 'test@example.com'
+    password 'f4k3p455w0rd'
+
+    # if needed
+    # is_active true
+  end
+end
+
+user = FactoryGirl.create(:user)
+user.confirmed_at = Time.now
+user.save
+
+RSpec.configure do |config|
+  config.after :each do
+    Warden.test_reset!
+  end
+end
+
+logout(:user)
+
+If you have trouble using Warden's login_as method with the capybara-webkit driver, try setting run_callbacks to false in the login_as options struct
+
+user = FactoryGirl.create(:user)
+login_as(user, :scope => :user, :run_callbacks => false)
+
+
+
+================================
+
+Solution is a specific working of Capibara with Rspec.
+I add following file to spec/support/database_cleaner.rb
+
+RSpec.configure do |config|
+  config.use_transactional_fixtures = false
+
+  config.before :each do
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :transaction
+    else
+      DatabaseCleaner.strategy = :truncation
+    end
+    DatabaseCleaner.start
+  end
+
+  config.after do
+    DatabaseCleaner.clean
+  end
+end
+
+And I add a comment to the following line in spec/spec_helper.rb
+
+RSpec.configure do |config|
+  #config.use_transactional_fixtures = true
+end
+
+Test becomes green.
+
+================================
+
+class SomeControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in FactoryGirl.create(:admin)
+  end
+end
+
+
+require 'devise'
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+end
+
+Note: If this include is done before your require 'rspec/rails', then move this include to spec/rails_helper.rb
+
+I also like to write controller_macros.rb file inside spec/support which contains the following:
+
+module ControllerMacros
+  def login_admin
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:admin]
+      sign_in FactoryGirl.create(:admin) # Using factory girl as an example
+    end
+  end
+
+  def login_user
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      user = FactoryGirl.create(:user)
+      user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the "confirmable" module
+      sign_in user
+    end
+  end
+end
+
+Note: If your admin factory is nested on your user factory, you'll need to call sign_in like this:
+
+  def login_admin
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:admin]
+      admin = FactoryGirl.create(:admin)
+      sign_in :user, admin # sign_in(scope, resource)
+    end
+  end
+
+Then in spec/spec_helper.rb or spec/support/devise.rb:
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+end
+
+So now in my controller specs I can now do:
+
+describe MyController do
+  login_admin
+
+  it "should have a current_user" do
+    # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller
+    subject.current_user.should_not be_nil
+  end
+
+  it "should get index" do
+    # Note, rails 3.x scaffolding may add lines like get :index, {}, valid_session
+    # the valid_session overrides the devise login. Remove the valid_session from your specs
+    get 'index'
+    response.should be_success
+  end
+end
+
+================================
+
+require 'webmock/rspec'
+
+
+
+
+
+
+The correct code is in fact :
+
+describe 'log in' do
+  before { visit root_path }
+    subject { page }
+
+    describe 'should be able to log in' do
+      before do
+        user = FactoryGirl.create(:user)
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
+        click_on 'Log in'
+      end
+      it { should have_link 'Log out' }
+    end
+  end
+end
+It seems Capybara fill_in method doesn't take a symbol as an argument for ids but only strings. Silly me.
+
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+              OTHER
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+STRONG PARAMETERS
+
+Adding strong_parameters to controllers can be a pain, but it was straightforward and simple. Although you can add the attributes_protected gem, we found conflicts with this gem and other gems that have been modified for Rails 4 and strong_parameters. It was simpler to switch to strong_parameters then to try to get the attributes_protected gem to work.
+
+1> Add strong_parameters to Gemfile:
+  gem "strong_parameters"
+
+2> Next changes will be in "config/application.rb" whitelist_attributes settings:
+  config.active_record.whitelist_attributes = false
+  
+3> And then add "strong_parameters.rb" file in "config/initializers" with this content:
+  ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection)
+
+4> After this change you have to remove "attr_accessible" from models and use "strong_parameters" in controllers. Use the tests to verify that you migrated without problems in strong_parameters (I used tests in each step).
+
+
+
+JSON
+
+We had to make sure that our #as_json returns root object. This can be either by add explicit root: true to #as_json method call or global setting in Rails config. So make sure you test your JSON responses if the are still valid.
+
+# To enable root element in JSON for ActiveRecord objects.
+ActiveSupport.on_load(:active_record) do
+  self.include_root_in_json = true
+end
+
+
+
+
+DEVISE
+
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
+gem 'devise', '3.0.0.rc'
+
+
+Railsapp::Application.routes.draw do
+  devise_for :users
+end
+
+
+
+
+OTHER
+------------------------------------------------------------------------------------------------------------------------------------
+
+- Instead of creating an entire new app from scratch just to see configuration changes, you can run rake rails:update. It will go through all of your configuration files, which you can then diff (NEVER directly overwrite), and make changes.
+
+
+- Should upgrade Capybara before running your suite, we spent some time trying to fix brittle tests that disappeared once we updated this gem.
+
+
+- Allowing Bundler to do all the work during your big 4.2 update. For this reason you should delete any explicit gem version specs and run bundle update.
+
+
+- I find it extremely useful to delete the Gemfile.lock now. In my experience Bundler will have a much better time coping by allowing the entire dep graph to be rebuilt. Now go for the big update with a simple bundle install.
+
+
+- Rails now has a new option when using rake. Just pass the filename after the test argument. For example, this would run a single model test and since the new bin/rake file uses Spring, you can run this command over and over again very quickly.
+  $ rake test test/models/user_test.rb
+
+
+- The #deliver method is deprecated and will be removed in Rails 5. Now that Rails 4.2 has ActiveJob the preferred way to deliver emails via it would be to call #deliver_later or #deliver_now. Since the default queue adapter for ActiveJob is :inline, just go ahead and switch things to the deliver later method.
+
+
+- Partials can no longer have - hyphens in the filename. I had to change a few.
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+The "rails4_upgrade" gem helps to automate some of the processes required to the upgrade to the Rails 4. It add rake task to check old versions of gems:
+
+$ bundle exec rake rails4:check_gems
+Some of gems stopped to support rails 3 and support just rails 4. In this case better to read, what were changed in a gem in changelog and add migration notes, in case you have to do some work with this gem after update to rails 4.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+match 'subscriptions/:subscription_id' => 'news#create', via: [:post, :put, :patch]
+
+# Instead of this
+Author.where(name: 'Hank Moody').compact!
+ 
+# Now you have to do this
+authors = Author.where(name: 'Hank Moody').to_a
+authors.compact!
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Rails 4 moves many features into gems that were previously shipped with Rails itself. You can found list of this gems on this page. In my case I need:
+
+# used cache_page
+gem 'actionpack-page_caching', '1.0.0'
+# xml requests from some services
+gem 'actionpack-xml_parser', '1.0.0'
+
+After "bundle update rails" you should change your rails app. railsdiff.org will help you very much with this . In my project I had to use this diff.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Rails 4.0 has deprecated the old-style hash based finder API. This means that methods which previously accepted "finder options" no longer do. For example, Book.find(:all, conditions: { name: '1984' }) has been deprecated in favor of Book.where(name: '1984')
+
+
+All dynamic methods except for find_by_... and find_by_...! are deprecated. Here's how you can handle the changes:
+  find_all_by_... becomes where(...).
+  find_last_by_... becomes where(...).last.
+  scoped_by_... becomes where(...).
+  find_or_initialize_by_... becomes find_or_initialize_by(...).
+  find_or_create_by_... becomes find_or_create_by(...).
+Note that where(...) returns a relation, not an array like the old finders. If you require an Array, use where(...).to_a.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+ if you are using form_for to update a resource in conjunction with a custom route using the PUT HTTP method:
+
+resources :users, do
+  put :update_name, on: :member
+end
+<%= form_for [ :update_name, @user ] do |f| %>
+class UsersController < ApplicationController
+  def update_name
+    # Change needed; form_for will try to use a non-existent PATCH route.
+  end
+end
+
+If the action is being used in a public API and you can't change to HTTP method being used, you can update your form to use the PUT method instead:
+
+<%= form_for [ :update_name, @user ], method: :put do |f| %>
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Rails 4.1 introduces :plain, :html, and :body options to render. Those options are now the preferred way to render string-based content, as it allows you to specify which content type you want the response sent as.
+
+render :plain will set the content type to text/plain
+render :html will set the content type to text/html
+render :body will not set the content type header.
+From the security standpoint, if you don't expect to have any markup in your response body, you should be using render :plain as most browsers will escape unsafe content in the response for you.
+
+We will be deprecating the use of render :text in a future version. So please start using the more precise :plain, :html, and :body options instead. Using render :text may pose a security risk, as the content is sent as text/html.
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+ Existing signed cookies generated with Rails 3.x will be transparently upgraded if you leave your existing secret_token in place and add the new secret_key_base.
+# config/initializers/secret_token.rb
+Myapp::Application.config.secret_token = 'existing secret token'
+Myapp::Application.config.secret_key_base = 'new secret key base'
+Please note that you should wait to set secret_key_base until you have 100% of your userbase on Rails 4.x and are reasonably sure you will not need to rollback to Rails 3.x. This is because cookies signed based on the new secret_key_base in Rails 4.x are not backwards compatible with Rails 3.x. You are free to leave your existing secret_token in place, not set the new secret_key_base, and ignore the deprecation warnings until you are reasonably sure that your upgrade is otherwise complete.
+
+If you are relying on the ability for external applications or Javascript to be able to read your Rails app's signed session cookies (or signed cookies in general) you should not set secret_key_base until you have decoupled these concerns.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Rails 4.1 evaluates each fixture's ERB in a separate context, so helper methods defined in a fixture will not be available in other fixtures.
+
+Helper methods that are used in multiple fixtures should be defined on modules included in the newly introduced ActiveRecord::FixtureSet.context_class, in test_helper.rb.
+
+module FixtureFileHelpers
+  def file_sha(path)
+    Digest::SHA2.hexdigest(File.read(Rails.root.join('test/fixtures', path)))
+  end
+end
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Cross-site request forgery (CSRF) protection now covers GET requests with JavaScript responses, too. This prevents a third-party site from referencing your JavaScript URL and attempting to run it to extract sensitive data.
+
+This means that your functional and integration tests that use
+
+get :index, format: :js
+will now trigger CSRF protection. Switch to
+
+xhr :get, :index, format: :js
+to explicitly test an XmlHttpRequest.
+
+If you really mean to load JavaScript from remote <script> tags, skip CSRF protection on that action.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+If you want to use the new secrets.yml convention to store your application's secrets, you need to:
+
+Create a secrets.yml file in your config folder with the following content:
+
+development:
+  secret_key_base:
+ 
+test:
+  secret_key_base:
+ 
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
+Use your existing secret_key_base from the secret_token.rb initializer to set the SECRET_KEY_BASE environment variable for whichever users running the Rails application in production mode. Alternatively, you can simply copy the existing secret_key_base from the secret_token.rb initializer to secrets.yml under the production section, replacing '<%= ENV["SECRET_KEY_BASE"] %>'.
+
+Remove the secret_token.rb initializer.
+
+Use rake secret to generate new keys for the development and test sections.
+
+Restart your server.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Environments & Initializers
+
+- Removed config.filter_parameters from application.rb to config/initializers/filter_parameter_logging.rb
+- The config.assets.precompile and config.assets.version have moved to config/initializers/assets.rb
+- Many files now use the Rails.application singleton resource vs MyApp::Application constant.
+- New config.active_support.test_order = :random added in test environment file.
+
+New Test Directories
+
+- Renamed test/functional folder to test/controllers
+- Renamed test/unit folder to test/models
+- Created a test/mailers folder and moved all my mailer tests from units to it.
+- Renamed ActionController::IntegrationTest to ActionDispatch::IntegrationTest.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+http://www.upgradingtorails4.com/
+http://www.ready4rails4.net/
+http://easyactiverecord.com/blog/2014/04/01/rails4-strong-parameters-and-the-attr-accessible-macro
+https://github.com/rails/strong_parameters
+http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1.html
+https://github.com/rails/rails/blob/master/actionpack/lib/action_controller/metal/request_forgery_protection.rb
+https://github.com/rails/sprockets-rails/issues/49
+https://github.com/alexspeller/non-stupid-digest-assets
+https://github.com/metaskills/minitest-spec-rails/issues/49
+https://github.com/thoughtbot/appraisal%29
+http://blog.plataformatec.com.br/2013/05/devise-and-rails-4/
+http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/
+https://github.com/rails/activeresource
+https://github.com/plataformatec/devise/commit/c63483ae2409ba44889756796930f5d45630d7b3
+https://github.com/ACEfanatic02/scheduler/commit/b63537b13b6a2748b2312086aa03584893939c00
+https://github.com/fluent/fluentd-ui/commit/9dc12cc5bb014553ef3fd7c373ff7d9826ac2da4
+
+
+
+-----------------------------------------------------------------------------
+TESTS
+-----------------------------------------------------------------------------
+
+Structure:
+
+test
+  controllers (was functional)
+  fixtures
+  helpers (was unit/helpers)
+  integration
+  mailers
+  models (was unit)
+
+rake tasks
+  rake test:units  same as rake  test:models
+  rake test:functionals  same as rake  test:controllers
+                             
+rake test:helpers and rake test:mailers only work with new folder structure
+
+Migrations are pending; run 'rake db:migrate RAILS_ENV=test' to resolve this issue. (ActiveRecord::PendingMigrationError)
+         
+$ rake test:models TEST_OPTS="--verbose"                             
+-----------------------------------------------------------------------------
+PATCH VERB
+-----------------------------------------------------------------------------
+
+test "updates item with patch" do
+  patch :update, id: @item,
+    item: { description: @item.description }
+  assert_redirected_to item_url(@item)  
+end
+
+-----------------------------------------------------------------------------
+CONCERNS
+-----------------------------------------------------------------------------
+
+concern :sociable do |options|
+  resources :comments, options
+  resources :categories, options
+  resources :tags, options
+end
+
+resources :comments, concerns: :sociable
+resources :categories, concerns: :sociable
+resources :items do 
+  concerns: :sociable, only: :create
+end
+
+-----------------------------------------------------------------------------
+SCOPES
+-----------------------------------------------------------------------------
+
+scope :recent, lamda { where(published_at: 2.weeks.ago) }
+scope :recent, -> { where(published_at: 2.weeks.ago) }
+scope :recent_red, ->{ recent.where(color: 'red') }
+scope :sorted, lamda { order("subjects.created_at DESC") }
+
+def self.recent
+  where(published_at: 2.weeks.ago)
+end
+
+scope :recent, lamda {|cdate|
+ where(published_at: cdate) }
+}
+
+def self.recent(cdate)
+  where(published_at: cdate)
+end
+
+-----------------------------------------------------------------------------
+STRONG PARAMETERS
+-----------------------------------------------------------------------------
+
+The controller is now responsible for whitelisting parameters
+
+def create
+  @user = User.new(user_params)
+@user.save
+  redirect_to @user, notice: 'Created'
+end
+def update
+  @user.update(user_params)
+  redirect_to @user, notice: 'Updated'
+end
+private
+  def user_params
+   params.require(:user).permit(:name)
+  end
+
+Permitted types:
+  String, Symbol, NilClass, Numeric, TrueClass, FalseClass, Date, Time, DateTime,StringIO, IO, ActionDispatch::Http::UploadedFile and Rack::Test::UploadedFile
+
+By default, all unpermitted parameters will get logged.
+
+For more info, check https://github.com/rails/strong_parameters
+
+If you still need attr_accessible and attr_protected they’re available as a gem
+  gem 'protected_attributes'
+
+-----------------------------------------------------------------------------
+FINDERS
+-----------------------------------------------------------------------------
+
+@credit_report = CreditReport.find_by(user_id: @user.id)
+@credit_report = CreditReport.where(user_id: @user.id)
+
+
+Post.find_all_by_title('Rails 4')  =>  Post.where(title: 'Rails 4')
+Post.find_by_title('Rails 4')  =>  Post.find_by(title: 'Rails 4')
+
+
+
+post_params = { title: 'Rails 4', author: 'admin' }
+Post.find_by(post_params)
+
+Post.find_by("published_on < ?", 2.weeks.ago)
+
+Dynamic finders that create new objects are deprecated
+
+Rails 3
+  Post.find_or_initialize_by_title('Rails 4')
+  Post.find_or_create_by_title('Rails 4')
+Rails 4  
+  Post.find_or_initialize_by(title:'Rails4')
+  Post.find_or_create_by(title:'Rails4')
+  
+-----------------------------------------------------------------------------
+Differences
+-----------------------------------------------------------------------------
+
+  Rails 3
+@post.update_attributes(post_params)
+  Rails 4  
+@post.update(post_params)
+
+  Rails 3
+@tweets = Tweet.scoped
+  Rails 4  
+@tweets = Tweet.all
+
+  Rails 3
+User.order(:name, 'created_at DESC')
+  Rails 4  
+User.order(:name, created_at: :desc)
+
+  Rails 3
+
+  Rails 4  
+
+
+  Rails 3
+
+  Rails 4  
+
+
+  Rails 3
+
+  Rails 4  
+
+
+  Rails 3
+
+  Rails 4  
+
+
+-----------------------------------------------------------------------------
+General Notes
+-----------------------------------------------------------------------------
+
+must explicitly tell when referencing a table from a string
+￼￼
+Post.includes(:comments).
+  where("comments.name = 'foo'").references(:comments)
+
+The following cases do not require us to explicitly specify the reference:
+  Post.includes(:comments).where(comments: { name: 'foo' })
+  Post.includes(:comments).where('comments.name' => 'foo')
+  Post.includes(:comments).order('comments.name')
+
+-----------------------------------------------------------------------------
+config/application.rb
+-----------------------------------------------------------------------------
+
+- Add this line if you want to raise errors for unpermitted params
+￼config.action_controller.action_on_unpermitted_parameters = :raise
+
+- To re-enable this authenticity token for remote forms (Ajax forms won't work with javascript off):
+ config.action_view.embed_authenticity_token_in_remote_forms = true
+
+
+- Default, ActionController::InvalidAuthenticityToken
+  protect_from_forgery with: :exception
+
+- an empty session (until the next valid request)
+  protect_from_forgery with: :null_session
+
+- a new session (destroying the old one)
+  protect_from_forgery with: :reset_session 
+ 
+-----------------------------------------------------------------------------
+config/environment/production.rb
+-----------------------------------------------------------------------------
+
+- Thread safety
+  config.cache_classes = true
+  config.eager_load = true
+
+-----------------------------------------------------------------------------
+￼Action Controller Filters/Actions
+-----------------------------------------------------------------------------
+
+RAILS 3
+  before_filter
+  prepend_before_filter
+  skip_before_filter
+  append_before_filter
+  after_filter
+  prepend_after_filter
+  skip_after_filter
+  append_after_filter
+  around_filter
+  prepend_around_filter
+  skip_around_filter
+  append_around_filter
+  
+RAILS 4
+  before_action
+  prepend_before_action
+  skip_before_action
+  append_before_action
+  after_action
+  prepend_after_action
+  skip_after_action
+  append_after_action
+  around_action
+  prepend_around_action
+  skip_around_action
+  append_around_action  
+
+"filter" methods will still work, with no warnings
+
+
+
+
+-----------------------------------------------------------------------------
+config/initializers/secret_token.rb
+-----------------------------------------------------------------------------
+
+Securing secret key base
+
+Apps with source code publicly available should secure this key
+ MyApp::Application.config.secret_key_base = '7014c379b14b6f4(...)'
+ 
+Store and read the secret key from an environment variable
+ MyApp::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
+-----------------------------------------------------------------------------
+
+
+http://rails4.codeschool.com
+
+- Models
+
+using normal classes as models:
+	include ActiveModel::Model
+
+User.find_by_title('Rails4')
+=>
+User.find_by(title: 'Rails4')
+
+
+scope :recent, where(published_at: 2.weeks.ago)
+=>
+scope :recent, ~>{ where(published_at: 2.weeks.ago) }
+scope :recent_red, ~>{ recent.where(color: 'red') }
+
+
+Post.where('author != ?', author)
+=>
+Post.where.not(author: author)
+
+
+Post.includes(:comments).where("comments.name = 'foo'")
+=>
+Post.includes(:comments).
+	where("comments.name = 'foo'").references(:comments)
+
+
+else
+	users = []
+=>
+else
+	users = User.none
+	
+	
+	
+- Controllers
+
+	before_filter :some_method
+	=>
+	before_action :some_method
+
+
+
+
+rake rails:update
+
+Rspec Gems
+
+
+custom_rspec_matchers (0.0.3)
+active_record_model_and_rspec_enhanced_templates (1.0.5)
+growl-rspec
+rspec-factory-girl (0.2.0)
+rspec-collection_matchers (1.1.2)
+rspec-action_view (0.3.5)
+rspec-active_record_mocks (1.1.0)
+rspec-activemodel-mocks (1.0.1)
+rspec-activerecord (0.0.2)
+rspec-fakes (0.0.9)
+rspec-html-matchers (0.7.0)
+rspec-json_expectations (1.2.0)
+rspec-json_matcher (0.1.5)
+rspec-rails-mocha (0.3.2)
+rspec-rails-routing (3.0.0)
+rspec-rabl (1.0.0)
+rspec-rails-controller (0.1.2)
+rspec-rails-matchers (0.2.1)
+rspec-webservice_matchers (4.0.1)
+rspec-xml (0.1.1)
+webmock-rspec-helper (0.0.3)
+kaminari-rails4
+jquery-rails-rails4 
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+                                                  ActiveRecord
+------------------------------------------------------------------------------------------------------------------------------------
+
+You are going to see a lot of ArgumentError: Unknown key: ... errors. 
+The reason is that Rails 4.0 now requires that scopes use a callable object such as a Proc or lambda.
+
+# Old
+has_many :foos, order: 'position'
+has_many :bars, through: :foos, readonly: false, order: 'foos.position, bars.position'
+
+# New
+has_many :foos, -> { order('position') }
+has_many :bars, -> { order('foos.position, bars.position').readonly(false) 
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+The class update_all no longer takes a second conditions argument. 
+I always disliked methods that took two option hashes and this is a great change. For example:
+
+# Old
+Book.update_all({author: 'David'}, {title: 'Rails'})
+
+# New
+Book.where(title: 'Rails').update_all(author: 'David')
+Lastly, the all method no longer takes finder options.
+
+# Old
+User.all(conditions:{email:'ken@metaskills.net'}).map(&:id)
+
+# New
+User.where(email:'ken@metaskills.net').all.map(&:id)
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+                                                  ActionMailer
+------------------------------------------------------------------------------------------------------------------------------------
+Comment out the @request.env["devise.mapping"] = Devise.mappings[:user] line if you are writing specs for internal controllers of Devise.
+
+I've changed before :all to before :each and now it works. Looks like API incompatibility between devise (used github master branch) and rspec 2.14.1
+
+
+I actually had the same exact problem, and after googling a little bit I found that including Warden::Test::Helpers directly was a more concise solution for request specs, since it programmatically signs in/out users just like this:
+
+# spec/support/request_helpers.rb
+require 'spec_helper'
+include Warden::Test::Helpers
+
+module RequestHelpers
+  def create_logged_in_user
+    user = Factory(:user)
+    login(user)
+    user
+  end
+
+  def login(user)
+    login_as user, scope: :user
+  end
+end
+
+In short, just include Warden::Test::Helpers and then use the login_as <your_user> method and that's it!
+
+
+	
+Also, take into account that Devise::TestHelpers only work if you describe a controller class like: describe NewsController ... instead of ... describe "NewsController"
+
+
+For speed of tests reasons, I’d prefer to just set session data. After Googling around, I found this solution and modified it a bit.
+
+
+# spec/support/request_helpers.rb
+require 'spec_helper'
+include Warden::Test::Helpers
+
+module RequestHelpers
+  def create_logged_in_user
+    user = Factory(:user)
+    login(user)
+    user
+  end
+
+  def login(user)
+    login_as user, scope: :user
+  end
+end
+
+Now you just need to call create_logged_in_user and you’re good to go.
+
+describe "user settings" do
+  let(:authed_user) { create_logged_in_user }
+
+  it "should allow access" do
+    visit user_settings_path(authed_user)
+    # should be good!
+  end
+end
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Adding the following to my spec_helper.rb (in my case spec/support/mailer.rb which is included in spec_helper.rb) fixed the error:
+
+  Rails.application.routes.default_url_options[:host] = 'test.host'
+------------------------------------------------------------------------------------------------------------------------------------
+
+https://leanpub.com/everydayrailsrspec
+https://github.com/rspec/rspec-rails/blob/master/lib/rspec/rails/view_rendering.rb#L71
+http://simple10.com/rspec-capybara-devise-login-tests/
+http://stackoverflow.com/questions/9144865/rspec-capybara-request-specs-cant-get-devise-to-post-new-user-session
+http://www.simonecarletti.com/blog/2011/04/rspec-rails-doesnt-render-rails-views-by-default/
+https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec
+http://stackoverflow.com/questions/18016761/rails-4-devise-invalid-route-name-already-in-use
+https://www.codeschool.com/courses/rails-4-patterns/
+
+
+http://www.leighhalliday.com/posts/responding-with-json-in-rails
+https://github.com/rails/jbuilder/issues/32
+
+------------------------------------------------------------------------------------------------------------------------------------
+rake db:migrate RAILS_ENV=test
+------------------------------------------------------------------------------------------------------------------------------------
+module Shoulda::Matchers
+  class SomeMatcher
+    extend RSpecFailureMessageWrappers
+
+    positive_failure_message do
+      'Positive failure message goes here'
+    end
+
+    negative_failure_message do
+      'Negative failure message goes here'
+    end
+  end
+end
+------------------------------------------------------------------------------------------------------------------------------------
+class ApplicationController < ActionController::Base
+  def default_url_options
+    {:host => host}
+  end
+end
+------------------------------------------------------------------------------------------------------------------------------------
+Your::Application.routes.draw do
+    default_url_options :host => "example.com"
+
+    # ... snip ...
+end
+
+In the config file for each respective environment, I add this custom option: config.domain = 'staging.myapp.com' (of course substitute in a correct domain name for each env). Then in routes.rb I'm free to use default_url_options host: Rails.application.config.domain and it will work in any environment.
+
+Note: You can add a port also listing_url(listing, host: request.host, port: 3000)
+------------------------------------------------------------------------------------------------------------------------------------
+My approach so far, which goes into config/environments/{development, production}.rb:
+
+MyApp::Application.configure do
+    # Stuff omitted...
+
+    config.action_mailer.default_url_options = {
+      # Set things here as usual
+    }
+end
+
+MyApp::Application.default_url_options = MyApp::Application.config.action_mailer.default_url_options
+
+------------------------------------------------------------------------------------------------------------------------------------
+The solution is that RSpec requires a configuration option: config.render_views = true, or in example groups where you need the view rendered, call render_views.
+
+Their advice is to move the test into the spec/requests directory, for which rspec renders the views. It worked.
+------------------------------------------------------------------------------------------------------------------------------------
+You can set default url options in the Application Controller:
+
+class ApplicationController < ActionController::Base
+  def default_url_options
+    {:locale => I18n.locale}
+  end
+end
+------------------------------------------------------------------------------------------------------------------------------------
+ActionView::Template::Error:Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true
+This error is only appeared when I was running our specs (i.e. only on test environment)
+
+The reason of this error was the line of code that we have had in our spec.
+
+include Rails.application.routes.url_helpers
+I've removed this line from spec and now everything works fine.
+------------------------------------------------------------------------------------------------------------------------------------
+Had the same issue in Rails 4.1.7 after updating from Rails 3.2.17. Adding the following linesolved it for me:
+
+Rails.application.routes.default_url_options[:host] = ENV['WEB_SITE_BASE_URL'].sub('http://', '')
+------------------------------------------------------------------------------------------------------------------------------------
+require 'rails_helper' 
+
+RSpec.configure do |config| 
+  config.render_views = true 
+end 
+
+describe SessionsController, :type => :controller do 
+... 
+------------------------------------------------------------------------------------------------------------------------------------
+Remove gem 'meta_search' from your gem file, and look into using gem ransack instead. https://github.com/activerecord-hackery/ransack
+------------------------------------------------------------------------------------------------------------------------------------
+According to the readme on view_paths
+
+If view_paths is set to a path, this view path will be checked for every rabl template within your application. Add to this 
+path especially when including Rabl in an engine and using view paths within a another Rails app.
+it implies that you don't have to explicitly set config.view_paths = ['app/views'] when using Rabl in a normal Rails app, is this correct? It's empty by default so I guess it needs to always be set?
+------------------------------------------------------------------------------------------------------------------------------------
+describe "routing" do
+  it "routes /auth/:provider/callback" do
+    { :post => "/auth/twitter/callback" }.should route_to(
+      :controller => "authentications",
+      :action => "create",
+      :provider => "twitter")
+  end
+end
+------------------------------------------------------------------------------------------------------------------------------------
+Order in the config file is important, put
+
+config.action_mailer.default_url_options = {
+  :host => '127.0.0.1',
+  :port => 3000
+}
+before : config.action_mailer.delivery_method = :test
+
+or : config.action_mailer.delivery_method = :smtp
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+In the end I just used:
+
+root_path
+instead of:
+
+root_url
+
+
+# rather than:
+foo.should == bar
+
+# ...use:
+expect(foo).to eq(bar)
+
+
+foo.should == bar
+expect(foo).to eq(bar)
+
+"a string".should_not =~ /a regex/
+expect("a string").not_to match(/a regex/)
+
+[1, 2, 3].should =~ [2, 1, 3]
+expect([1, 2, 3]).to match_array([2, 1, 3])
+
+
+
+ require 'capybara/rspec'
+ require 'capybara/rails'
+
+ RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+
+  config.infer_base_class_for_anonymous_controllers = false
+
+  config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, type: :controller
+  config.include Capybara::DSL
+  config.include Warden::Test::Helpers
+  config.include Rails.application.routes.url_helpers
+end
+
+
+
+
+Move spec_helper.rb to rails_helper.rb
+
+I've changed before :all to before :each and now it works. Looks like API incompatibility between devise (used github master branch) and rspec 2.14.1
+
+
+
+
+NoMethodError:
+       undefined method `call' for #<ActiveRecord::Relation []>
+
+       # NEW CHART STUFF
+       def chart_budgets
+         budgets.to_a.last_twelve.reverse
+       end
+
+       
+undefined method `have' for #<RSpec::ExampleGroups::Will:0x007fa698448f90>       
+
+
+
+
+
+
+require 'rails_helper'
+
+describe 'Navigation' do
+  context 'as a guest' do # TODO: This context doesn't really reflect reality. Is it really needed? Maybe a different name (e.g. 'always') would fit better?
+    it 'offers a link to the home page' do
+      visit root_path
+
+      within 'nav' do
+        expect(page).to have_link 'Base'
+      end
+    end
+
+    it 'offers a link to the about page' do
+      visit root_path
+
+      within 'nav' do
+        expect(page).to have_link 'About'
+      end
+    end
+
+    it 'offers the possibility to switch languages' do
+      visit root_path
+
+      expect(page).to have_css '#language_chooser .dropdown-toggle', text: 'Choose language' # Default language is english
+      click_link 'Seite auf Deutsch anzeigen'
+
+      expect(page).to have_css '#language_chooser .dropdown-toggle', text: 'Sprache wählen'
+      click_link 'Show page in english'
+
+      expect(page).to have_css '#language_chooser .dropdown-toggle', text: 'Choose language'
+    end
+    
+    it 'shows the "Toggle navigation" button on small, medium, and large screens (and collapses it on extra small ones)', js: true do
+      visit root_path
+
+      within 'nav' do
+        screen_width :xs do
+          expect(page).to have_button 'Toggle navigation'
+        end
+
+        screen_width :sm do
+          expect(page).not_to have_button 'Toggle navigation'
+        end
+
+        screen_width :md do
+          expect(page).not_to have_button 'Toggle navigation'
+        end
+
+        screen_width :lg do
+          expect(page).not_to have_button 'Toggle navigation'
+        end
+      end
+    end
+
+    it 'reports the status of dropdowns (expanded/collapsed) to non-visual agents', js: true do
+      visit root_path
+
+      within '#sign_in_panel' do
+        expect {
+          click_link 'Sign in'
+        }.to change { find('.dropdown-toggle')['aria-expanded'].to_b }.from(false).to true
+      end
+    end
+
+    it 'reports the responsiveness status (expanded/collapsed) to non-visual agents', js: true do
+      pending "Bootstrap doesn't support this yet, see https://github.com/twbs/bootstrap/issues/16099"
+
+      visit root_path
+
+      within 'nav' do
+        screen_width :xs do
+          expect {
+            click_button 'Toggle navigation'
+          }.to change { find('#toggle_navigation')['aria-expanded'].to_b }.from(false).to true
+        end
+      end
+    end
+
+    it 'reports the activity status of menu groups and items visually and aurally' do
+      visit root_path
+
+      active_menu_group_css  = '.dropdown.active > a.dropdown-toggle'
+      active_menu_group_text = 'Users (current menu group)'
+      active_menu_item_css   = '.dropdown.active > ul.dropdown-menu > li.active > a'
+      active_menu_item_text  = 'List Users (current menu item)'
+
+      within 'nav' do
+        expect(page).not_to have_css active_menu_group_css
+        expect(page).not_to have_text active_menu_group_text
+
+        expect(page).not_to have_css active_menu_item_css
+        expect(page).not_to have_text active_menu_item_text
+      end
+
+      click_link 'List Users'
+
+      within 'nav' do
+        expect(page).to have_css active_menu_group_css, text: active_menu_group_text
+        expect(page).to have_css active_menu_item_css, text: active_menu_item_text
+      end
+    end
+
+    context 'jump links' do
+      # See http://stackoverflow.com/questions/29209518/rspec-and-capybara-how-to-get-the-horizontal-and-vertical-position-of-an-elemen
+      it 'visually displays them only on focus', js: true
+
+      it 'offers access keys', js: true do
+        visit page_path('about')
+
+        expect(page).to have_css '#jump_to_home_page a[accesskey="0"]'
+        expect(page).to have_css '#jump_to_navigation a[accesskey="1"]'
+        expect(page).to have_css '#jump_to_content a[accesskey="2"]'
+      end
+
+      it 'exists an HTML ID for every same-page jump link' do
+        visit page_path('about')
+
+        expect(page).to have_css '#jump_to_navigation a[href="#navigation"]'
+        expect(page).to have_css '#navigation'
+
+        expect(page).to have_css '#jump_to_content a[href="#main"]'
+        expect(page).to have_css '#main'
+      end
+
+      it 'displays the link to the home page only on other pages' do
+        visit root_path
+        expect(page).not_to have_link 'Jump to home page'
+
+        visit page_path('about')
+        expect(page).to have_link 'Jump to home page'
+      end
+    end
+  end
+
+  context 'as a user' do
+    before do
+      @user = create :user
+      sign_in_as @user
+    end
+  end
+
+  context 'as an admin' do
+    before do
+      @admin = create :admin
+      sign_in_as @admin
+      visit root_path
+    end
+
+    it 'offers a link to the admin area' do
+      within 'nav' do
+        expect(page).to have_link 'Admin'
+      end
+
+      visit destroy_user_session_path
+
+      within 'nav' do
+        expect(page).not_to have_link 'Admin'
+      end
+    end
+
+    it 'offers a link to the create user page' do
+      within 'nav' do
+        expect(page).to have_link 'Create User'
+      end
+
+      visit destroy_user_session_path
+
+      within 'nav' do
+        expect(page).not_to have_link 'Create User'
+      end
+    end
+  end
+end
+
+
+  Drivers::ALL.each do |driver|
+    context driver, driver: driver do
+      it 'should see' do
+        should_see_text 'Hello World'
+      end
+
+      it 'should not see' do
+        should_not_see_text 'Goodbye World'
+      end
+
+      it 'should see with css selector' do
+        should_see_text 'Hello World', '.title'
+      end
+
+      it 'should not see with css selector' do
+        should_not_see_text 'Goodbye World', '.container'
+      end
+    end
+  end
+  
+  
+  
+  In my spec/support/macros.rb I added:
+
+  module RequestMacros
+    include Warden::Test::Helpers
+
+    # for use in request specs
+    def sign_in_as_a_user
+      @user ||= FactoryGirl.create :confirmed_user
+      login_as @user
+    end
+  end
+
+  And then included that in RSpec's config in spec_helper.rb:
+
+  RSpec.configure do |config|
+    config.include RequestMacros, :type => :request
+  end
+
+  And then in the request specs themselves:
+
+  describe "index" do
+    it "redirects to home page" do
+      sign_in_as_a_user 
+      visit "/url"
+      page.should_not have_content 'content'
+    end
+  end
+
+  ================================
+
+  The all method doesn't take parameters in Rails 4.
+
+  TitleProviderGroupName.all
+
+  has to be changed to
+
+  TitleProviderGroupName.order(:name)
+
+  ================================
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+    config.include ControllerMacros, :type => :controller
+  	….
+  #support/controller_macros.rb
+  module ControllerMacros    
+    def login_user
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      @user = Factory.create(:user)
+      sign_in @user
+    end
+  end
+  	….
+  #requests/some_spec.rb
+  require 'spec_helper'
+  describe "GET /guides/edit" do
+    before(:each) do
+      login_user     
+    end
+  end
+  	….
+  and if that fails - maybe it just can't find @request - in which case, pass it as a variable to login_user
+  	…
+  # spec/support/devise.rb
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+  end
+  ================================
+
+  Add a spec/support/devise.rb file with this content:
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+  end
+
+  ================================
+
+  subject { page }
+
+  describe 'should be able to log in' do
+    before do
+      visit '/users/sign_in'
+      user = FactoryGirl.create(:admin)
+      #user.add_role :admin
+      fill_in 'Username', with: user.username
+      fill_in 'Password', with: user.password
+      click_on 'Sign in'
+    end
+    it { should have_link 'Logout' }
+  end
+  ...
+
+  ================================
+
+  config.include Devise::TestHelpers, :type => :controller
+
+  config.include Devise::TestHelpers, :type => :view
+
+  config.include Devise::TestHelpers, :type => :helper
+
+  config.include RspecAuthentication, :type => :controller
+
+    config.include RspecAuthentication, :type => :view
+
+    config.include RspecAuthentication, :type => :helper
+
+  require 'devise/test_helpers'
+
+  before(:each) do
+    request.env['devise.mapping'] = Devise.mappings[:user]
+  end
+  ================================
+
+  let!(:ci_user) { FactoryGirl.create(:user, name: "configuration engineer", password: "password", password_confirmation: "password"  ) }
+
+  before do 
+      visit login_path
+      fill_in "Name", with: "configuration engineer"
+      fill_in "Password", with: "password"
+      click_button "Login"
+
+  ================================
+
+  describe "security", :type => :feature do
+    it "signs users in" do
+      visit "/sessions/new"
+      fill_in "username", :with => "user"
+      fill_in "password", :with => "pass"
+      click_button "Sign In"
+
+      page.should have_content('Login Successful')
+    end
+  end
+
+  ================================
+
+  FactoryGirl.define do
+    factory :user do
+      sequence( :first_name )  { |n| "FirstName#{n}" }
+      sequence( :last_name )  { |n| "LastName#{n}" }
+      sequence( :email ) { |n| "foo#{n}@example.com" }
+      password              'foobar'
+      password_confirmation 'foobar'
+      created_at            Time.now
+      updated_at            Time.now
+    end
+  end
+
+
+  describe 'log in' do
+    before { visit root_path }
+      subject { page }
+
+      describe 'should be able to log in' do
+        before do
+          user = FactoryGirl.create(:user)
+          fill_in 'user_email', with: user.email
+          fill_in 'user_password', with: user.password
+          click_on 'Log in'
+        end
+        it { should have_link 'Log out' }
+      end
+    end
+  end
+
+  ================================
+
+  module AuthenticationHelpers
+  	def login(user)
+  	  post login_path, :login => user.login, :password => 'password'
+  	end
+  end
+
+  require File.dirname(__FILE__) + '/../spec_helper'
+  require File.dirname(__FILE__) + '/authentication_helpers'
+
+
+  describe "Messages" do
+    include AuthenticationHelpers
+
+    describe "GET admin/messages" do
+      before(:each) do
+        @current_user = Factory :super_admin
+        login(@current_user)
+      end
+   ….
+
+  class ApplicationController < ActionController::Base
+    protect_from_forgery
+
+    helper_method :current_user
+    helper_method :logged_in?
+
+    protected
+
+    def current_user  
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]  
+    end
+
+    def logged_in?
+      !current_user.nil?
+    end
+  end
+
+
+  include Warden::Test::Helpers
+
+
+  # file: spec/requests_helper.rb
+  def login(user)
+    post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
+  end
+
+  ================================
+
+  Have a look at ControllerMacros
+
+  module ControllerMacros
+     def login_user
+      before(:each) do
+        user = FactoryGirl.create(:user)
+        @current_user = user
+        sign_in user
+      end
+    end
+  end
+
+  spec/spec_helper.rb
+
+  RSpec.configure do |config|
+    ....
+    config.extend ControllerMacros, :type => :controller
+  end
+
+  spec/controllers/some_controller_spec.rb
+
+  require File.dirname(__FILE__) + '/../spec_helper'
+
+  describe SomeController, "index" do
+      context "for authenticated users" do
+          login_user
+          ...
+      end
+  end
+
+
+  ================================
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, :type => :view
+  end
+
+
+  ================================
+
+
+  describe User do
+    describe '#locked?' do
+    
+      before :each do
+        subject.should_receive(:current_plan).and_return plan
+      end
+    
+      context 'when expiring today' do
+        let(:plan) { stub(:expiry => Date.today) }
+        it 'should be false' do
+          subject.should_not be_locked
+        end
+      end
+    
+      context 'when expired yesterday' do
+        let(:plan) { stub(:expiry => Date.yesterday) }
+        it 'should be true' do
+          subject.should be_locked
+        end
+      end
+    
+    end
+  end
+
+  ================================
+
+
+  require 'capybara'
+  require 'capybara/dsl'
+
+  Capybara.default_driver = :webkit
+
+  module MyModule
+    include Capybara::DSL
+
+    def login!
+      within("//form[@id='session']") do
+        fill_in 'Email', :with => 'user@example.com'
+        fill_in 'Password', :with => 'password'
+      end
+      click_button 'Sign in'
+    end
+  end
+
+  ================================
+
+  module AuthenticationHelpers
+    def login_as(user)
+      # ...
+    end
+  end
+
+  module UserHelpers
+    def users(username)
+      # ...
+    end
+  end
+
+  RSpec.configure do |config|
+    config.include(UserHelpers) # included in all modules
+    config.include(AuthenticationHelpers, :type => :request)
+  end
+
+  describe "edit profile", :type => :request do
+    it "can be viewed by owning user" do
+      login_as users(:jdoe)
+      get "/profiles/jdoe"
+      assert_select ".username", :text => 'jdoe'
+    end
+  end
+
+
+  ================================
+
+
+  RSpec.configure do |rspec|
+    rspec.raise_errors_for_deprecations!
+  end
+
+  ================================
+
+  RSpec.configure do |config|
+    config.alias_example_to :pending, :pending => true
+  end
+
+  # This lets you do this:
+
+  describe Thing do
+    pending "does something" do
+      thing = Thing.new
+    end
+  end
+
+  # ... which is the equivalent of
+
+  describe Thing do
+    it "does something", :pending => true do
+      thing = Thing.new
+    end
+  end
+
+  ================================
+
+  config.expect_with :rspec
+  config.expect_with :test_unit
+  config.expect_with :minitest
+  config.expect_with :rspec, :minitest
+  config.expect_with OtherExpectationFramework
+
+  config.expect_with OtherExpectationFramework do |custom_config|
+    custom_config.custom_setting = true
+  end
+
+  ================================
+
+  RSpec.configure do |config|
+    config.extend(UiHelpers, :type => :request)
+  end
+
+  ================================
+
+
+
+  You can create a macro (/spec/support/controller_macros.rb) and write something like :
+
+  module ControllerMacros
+    def login_user
+      before(:each) do
+        @request.env["devise.mapping"] = :user
+        @user = Factory(:user)
+        sign_in @user
+      end
+    end
+  end
+
+  You can also include any CanCan attributes you want. Then, in your spec :
+
+  describe YourController do
+      login_user
+
+      it "should ..." do
+
+      end
+
+
+  ================================
+
+  RSpec.configure do |config|
+    config.include Warden::Test::Helpers
+    config.before :suite do
+      Warden.test_mode!
+    end
+  end
+
+  user = FactoryGirl.create(:user)
+  login_as(user, :scope => :user)
+
+  FactoryGirl.define do
+    factory :user do
+      email 'test@example.com'
+      password 'f4k3p455w0rd'
+
+      # if needed
+      # is_active true
+    end
+  end
+
+  user = FactoryGirl.create(:user)
+  user.confirmed_at = Time.now
+  user.save
+
+  RSpec.configure do |config|
+    config.after :each do
+      Warden.test_reset!
+    end
+  end
+
+  logout(:user)
+
+  If you have trouble using Warden's login_as method with the capybara-webkit driver, try setting run_callbacks to false in the login_as options struct
+
+  user = FactoryGirl.create(:user)
+  login_as(user, :scope => :user, :run_callbacks => false)
+
+
+
+  ================================
+
+  Solution is a specific working of Capibara with Rspec.
+  I add following file to spec/support/database_cleaner.rb
+
+  RSpec.configure do |config|
+    config.use_transactional_fixtures = false
+
+    config.before :each do
+      if Capybara.current_driver == :rack_test
+        DatabaseCleaner.strategy = :transaction
+      else
+        DatabaseCleaner.strategy = :truncation
+      end
+      DatabaseCleaner.start
+    end
+
+    config.after do
+      DatabaseCleaner.clean
+    end
+  end
+
+  And I add a comment to the following line in spec/spec_helper.rb
+
+  RSpec.configure do |config|
+    #config.use_transactional_fixtures = true
+  end
+
+  Test becomes green.
+
+  ================================
+
+  class SomeControllerTest < ActionController::TestCase
+    include Devise::TestHelpers
+
+    def setup
+      @request.env["devise.mapping"] = Devise.mappings[:admin]
+      sign_in FactoryGirl.create(:admin)
+    end
+  end
+
+
+  require 'devise'
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+  end
+
+  Note: If this include is done before your require 'rspec/rails', then move this include to spec/rails_helper.rb
+
+  I also like to write controller_macros.rb file inside spec/support which contains the following:
+
+  module ControllerMacros
+    def login_admin
+      before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:admin]
+        sign_in FactoryGirl.create(:admin) # Using factory girl as an example
+      end
+    end
+
+    def login_user
+      before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        user = FactoryGirl.create(:user)
+        user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the "confirmable" module
+        sign_in user
+      end
+    end
+  end
+
+  Note: If your admin factory is nested on your user factory, you'll need to call sign_in like this:
+
+    def login_admin
+      before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:admin]
+        admin = FactoryGirl.create(:admin)
+        sign_in :user, admin # sign_in(scope, resource)
+      end
+    end
+
+  Then in spec/spec_helper.rb or spec/support/devise.rb:
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend ControllerMacros, :type => :controller
+  end
+
+  So now in my controller specs I can now do:
+
+  describe MyController do
+    login_admin
+
+    it "should have a current_user" do
+      # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller
+      subject.current_user.should_not be_nil
+    end
+
+    it "should get index" do
+      # Note, rails 3.x scaffolding may add lines like get :index, {}, valid_session
+      # the valid_session overrides the devise login. Remove the valid_session from your specs
+      get 'index'
+      response.should be_success
+    end
+  end
+
+  ================================
+
+  require 'webmock/rspec'
+
+
+
+
+
+
+  The correct code is in fact :
+
+  describe 'log in' do
+    before { visit root_path }
+      subject { page }
+
+      describe 'should be able to log in' do
+        before do
+          user = FactoryGirl.create(:user)
+          fill_in 'user_email', with: user.email
+          fill_in 'user_password', with: user.password
+          click_on 'Log in'
+        end
+        it { should have_link 'Log out' }
+      end
+    end
+  end
+  It seems Capybara fill_in method doesn't take a symbol as an argument for ids but only strings. Silly me.
+  
+  

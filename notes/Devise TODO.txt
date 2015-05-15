@@ -1,0 +1,26 @@
+
+# app/controllers/users/passwords_controller.rb
+
+class Users::PasswordsController < Devise::PasswordsController
+  def resource_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :reset_password_token)
+  end
+  private :resource_params
+end
+
+
+
+# app/controllers/users/registrations_controller.rb
+
+class Users::RegistrationsController < Devise::RegistrationsController
+  def resource_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+  end
+  private :resource_params
+end
+
+
+
+# config/routes.rb
+
+devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}

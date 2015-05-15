@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.1.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
 gem 'activeadmin', github: 'activeadmin'
@@ -9,17 +9,15 @@ gem "jquery_datepicker", github: "foodforarabbit/jquery_datepicker", ref: "63633
 
 gem 'therubyracer'
 gem 'mysql2'
-gem 'devise'
+gem 'devise', '3.4.1'
 gem 'delayed_job'
 gem 'easy_roles'
 gem 'formtastic'
 gem 'gritter'
 gem 'json'
-gem 'launchy'
 gem 'mime-types'
 gem 'rmagick'
 gem 'paperclip'
-gem 'psych'
 gem 'jbuilder', '~> 2.0'
 gem 'stateflow'
 gem 'best_in_place'
@@ -27,7 +25,8 @@ gem 'mail'
 gem 'postmark-rails'
 gem 'roo'
 gem 'ffi'
-
+gem 'sqlite3'
+  
 # PDF gems
 gem 'wicked_pdf'
 gem 'prawn'
@@ -46,37 +45,28 @@ gem 'coffee-rails', '~> 4.1.0'
 # Jquery AJAX gems
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'turbolinks'
-
-# Rails 4 gems
-gem 'activerecord-deprecated_finders'
-gem 'autoprefixer-rails'
-gem 'protected_attributes'
-gem 'rails-deprecated_sanitizer'
-gem 'responders'
+# gem 'turbolinks'
 
 group :development, :test do
   gem 'rspec-rails'  
   gem 'capybara'
-  gem 'capybara-webkit'  
-  gem 'guard-rspec'
-  gem 'guard-livereload'
+  gem 'capybara-webkit'
+  gem 'launchy'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'  
   gem 'database_cleaner'
-  
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spork'
   gem 'spring'
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
   
+  # gem 'faker'
 end
 
 group :development do
+  gem 'thin'
+  gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'  
@@ -84,12 +74,21 @@ group :development do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
   gem 'pry'
-  gem 'spork'
   gem 'letter_opener'
   gem 'quiet_assets', '1.1.0'
-  gem 'sqlite3'
+  
+  # gem 'rails_layout'
+  # gem 'spring-commands-rspec'
 end
 
+
+
+# Rails 4 gems
+# gem 'activerecord-deprecated_finders'
+# gem 'autoprefixer-rails'
+# gem 'protected_attributes'
+# gem 'rails-deprecated_sanitizer'
+# gem 'responders'
 
 # activerecord-deprecated_finders (1.0.4)
 # autoprefixer-rails (5.1.10, 5.1.9)

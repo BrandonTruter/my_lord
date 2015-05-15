@@ -1,0 +1,243 @@
+
+belongs_to :user
+
+
+
+
+
+
+  scenario 'with valid details' do
+    visit root_path
+    click_on 'Register'
+    fill_in 'Email', with: 'valid@example.com'
+    fill_in 'Password', with: 'asdasdasd'
+    fill_in 'Confirm', with: 'asdasdasd'
+    click_on 'Sign up'
+    
+    expect(page).to have_content('You have signed up successfully.')
+    
+    expect(page).to have_content('valid@example.com')
+    expect(page).to have_link('My info')
+    expect(page).to have_link('Sign out')
+  end
+
+  scenario 'with valid email and password' do
+    sign_up_with 'example@ymail.com', 'asdasdasd'
+    
+    expect(page).to have_content('You have signed up successfully.')
+    expect(page).to have_content('Users#show')
+    expect(page).to have_link('Signout')
+  end  
+
+
+
+  # POST /resource
+  def create
+    build_resource
+    
+    if resource.save
+      flash[:notice] = "You have signed up successfully."           
+      redirect_to user_path(current_user.id)
+    else
+      
+      flash[:notice] = "Requires email" if resource.email.blank?
+      flash[:notice] = "Requires password" if resource.password.blank?
+      flash[:notice] = "Requires password confirmation" if resource.password_confirmation.blank?
+    
+      render :new
+    end
+    
+  end
+
+
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "does not match"
+
+
+class Users::RegistrationsController < Devise::RegistrationsController
+
+  def resource_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+  private :resource_params
+  
+  # def sign_up_params params.require(:user).permit(:email, :password, :password_confirmation, :current_password, ....) end
+end
+
+
+
+
+
+class Users::SessionsController < Devise::SessionsController
+# before_filter :configure_sign_in_params, only: [:create]
+
+  # GET /resource/sign_in
+  # def new
+  #   super
+  # end
+
+  # POST /resource/sign_in
+  # def create
+  #   super
+  # end
+
+  # DELETE /resource/sign_out
+  # def destroy
+  #   super
+  # end
+
+  # protected
+
+  # You can put the params you want to permit in the empty array.
+  # def configure_sign_in_params
+  #   devise_parameter_sanitizer.for(:sign_in) << :attribute
+  # end
+end
+
+
+
+
+
+
+
+# require "application_responder"
+
+class ApplicationController < ActionController::Base
+  # self.responder = ApplicationResponder
+  respond_to :html
+
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # protected
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password) }
+  #   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
+  # end
+
+  protected
+
+    def stored_location_for(resource)
+      nil
+    end
+
+    def after_sign_in_path_for(resource)
+      users_path
+    end
+
+    def after_sign_up_path_for(resource)
+      users_path
+    end
+end
+
+
+
+
+    
+    before(:each) do
+      @user = User.create!(email: "user@example.com", password: "asdasd")
+      user = FactoryGirl.create(:user)
+    end
+
+
+
+require 'rails_helper'
+
+RSpec.describe "Sessions", type: :feature do
+  
+  describe 'sign in' do
+  
+    context 'success' do
+
+      before :each do
+        sign_in_with 'user@example.com', 'asdasdasd'
+      end
+
+      scenario 'displays correct page' do
+        current_path.should == '/users/1'
+      end
+
+      scenario 'displays flash message' do
+        expect(page).to have_content('Signed in successfully.')
+      end
+    
+      scenario 'displays user information' do
+        expect(page).to have_content('user@example.com')
+      end
+    
+      scenario 'displays correct links' do
+        expect(page).to have_link('My info')
+        expect(page).to have_link('Sign out')
+      end  
+
+      def sign_in_with(email, password)
+        visit new_user_session_path
+
+        fill_in 'Email', with: email
+        fill_in 'Password', with: password
+        click_on 'Log in'
+      end
+     
+    end
+  
+    context 'failure' do
+    
+      scenario 'with empty email address' do
+        sign_in_with '', 'secret'
+        expect(page).to have_content("Invalid email or password")
+      end
+    
+      scenario 'with empty password' do
+        sign_in_with 'user2@example.com', ''
+        expect(page).to have_content("Invalid email or password")
+      end
+      
+      def sign_in_with(email, password)
+        visit new_user_session_path
+
+        fill_in 'Email', with: email
+        fill_in 'Password', with: password
+        click_on 'Log in'
+      end
+    
+    end  
+  
+  end 
+  
+  describe 'signout' do
+    before(:each) do
+      visit new_user_session_path
+
+      fill_in 'Email', with: email
+      fill_in 'Password', with: password
+      click_on 'Log in'
+    end
+
+    it 'displays welcome page' do
+      click_link 'Sign out'
+      
+      expect(page).to have_link('Register')
+      expect(page).to have_link('Login')
+      expect(page).to have_content("Home#index")
+      
+      current_path.should == welcome_path
+    end
+    
+    it 'displays flash message' do
+      click_link 'Sign out'
+      expect(page).to have_content("Signed out successfully.")
+    end
+    
+  end
+  
+end

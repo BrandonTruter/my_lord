@@ -1,0 +1,26 @@
+<h1>New Scripture</h1>
+<p>Please provide the scripture information below:</p>
+
+
+<%= form_for [@user, @scripture] do |f| %>
+
+  <div class="fields">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="fields">
+    <%= f.label :reference, "Reference" %>
+    <%= f.text_field :reference %>
+  </div>
+  
+  <div class="fields">
+    <%= f.label :verse, "Verse" %>
+    <%= f.text_field :verse %>
+  </div>
+  
+  <div class="fields">
+    <%= f.submit "Create" %>
+  </div>
+
+<% end %>
