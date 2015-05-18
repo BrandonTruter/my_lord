@@ -69,5 +69,67 @@ RSpec.feature "Registrations", type: :feature do
     end
     
   end
+  
+  context 'update' do
+    
+    before(:each) do
+      @user = create(:user)
+      visit new_user_session_path
+
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
+      click_on 'Log in'
+      
+      current_path.should == user_path(@user.id)
+      click_on 'Update Credentials'
+    end
+    
+    scenario 'can be access' do
+      current_path.should == edit_user_registration_path(@user.id)
+    end
+    
+    scenario 'can be updated' do
+      update_credentials_with("updated@email.com", "password", "password", @user.password)
+      
+      expect(page).to have_content("Your account has been updated successfully.")
+    end
+    
+    scenario 'fails with empty details' do
+      update_credentials_with("", "", "", "")
+      
+      expect(page).to have_content("Email can't be blank")
+      expect(page).to have_content("Current password can't be blank")
+    end
+    
+    scenario 'fails with passwords that doesnt match' do
+      update_credentials_with("updated@email.com", "secret", "fdsadf", @user.password)
+      
+      expect(page).to have_content("Password confirmation doesn't match")
+    end
+    
+    scenario 'fails with invalid email' do
+      update_credentials_with("sadsf.com", "secret", "secret", @user.password)
+      
+      expect(page).to have_content("Email is invalid")
+    end
+    
+    scenario 'fails with existing email' do
+      existing_user = create(:user, email: "existing@user.com", password: "asdasd", password_confirmation: "asdasd")
+      
+      update_credentials_with(existing_user.email, "secret", "secret", @user.password)
+      
+      expect(page).to have_content("Email has already been taken")
+    end
+          
+    def update_credentials_with(email, password, confirmation, current)
+      fill_in 'Email', with: email
+      fill_in 'Password', with: password
+      fill_in 'Confirm', with: confirmation
+      fill_in 'Current', with: current      
+      click_on 'Update'
+    end    
+    
+  end  
+ 
 end
  

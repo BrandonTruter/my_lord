@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515231730) do
+ActiveRecord::Schema.define(version: 20150517151451) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
+    t.string   "middle_name",       limit: 255
+    t.boolean  "married",           limit: 1,   default: false
+    t.string   "language",          limit: 255
+    t.string   "race",              limit: 255
+    t.string   "religion",          limit: 255
+    t.string   "phone",             limit: 255
+    t.string   "fax",               limit: 255
+    t.string   "qualifications",    limit: 255
+    t.string   "hobbies",           limit: 255
+    t.string   "interests",         limit: 255
+    t.string   "company",           limit: 255
+    t.string   "position",          limit: 255
+    t.string   "occupation",        limit: 255
+    t.string   "gender",            limit: 255
+    t.datetime "date_of_birth"
+    t.integer  "family_size",       limit: 4
+    t.float    "net_salary",        limit: 24
+    t.string   "street_number",     limit: 255
+    t.string   "street_name",       limit: 255
+    t.string   "suburb",            limit: 255
+    t.string   "city",              limit: 255
+    t.string   "province",          limit: 255
+    t.string   "postal_code",       limit: 255
+    t.string   "spouse_first_name", limit: 255
+    t.string   "spouse_last_name",  limit: 255
+    t.string   "spouse_occupation", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "scriptures", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -24,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150515231730) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255
-    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",             null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -39,16 +71,16 @@ ActiveRecord::Schema.define(version: 20150515231730) do
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
     t.string   "id_number",              limit: 255
-    t.boolean  "married",                limit: 1,   default: false
-    t.string   "language",               limit: 255
-    t.string   "race",                   limit: 255
-    t.string   "phone",                  limit: 255
     t.string   "mobile",                 limit: 255
-    t.string   "fax",                    limit: 255
-    t.string   "employer",               limit: 255
-    t.string   "position",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "roles",                  limit: 255, default: "--- ['user']"
+    t.boolean  "monthly_scripture",      limit: 1
+    t.boolean  "completed_registration", limit: 1,   default: false
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

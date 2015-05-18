@@ -1,50 +1,33 @@
 
-expect(page).to have_selector(".header .username", :text => "jdoe")
-expect(page).to have_text("Widget was successfully created.")
-
-bundle exec rspec spec/requests/authentications_spec.rb
-bundle exec rspec spec/requests/user_authentications_spec.rb
-bundle exec rspec spec/requests/users_spec.rb
-
-bundle exec rspec spec/features/user_sign_in_spec.rb
-
-
-$ bundle exec rspec -fd
-
-screenshot_and_save_page
-```
-
-Or for screenshot only, which will automatically open the image.
-
-```ruby
-screenshot_and_open_image
 -----------------------------------------------------------------------------
-RAKE
+                            FactoryGirl
 -----------------------------------------------------------------------------
 
-rake -T | grep spec
-rake rails:update
-rake db:migrate RAILS_ENV=test
-rake test:models TEST_OPTS="--verbose"   
-rake test:units  same as rake  test:models
-rake test:functionals  same as rake  test:controllers                             
-rake test:helpers and rake test:mailers only work with new folder structure
 
------------------------------------------------------------------------------
-GEMS
------------------------------------------------------------------------------
-gem 'actionpack-xml_parser'
-gem 'actionpack-action_caching', '~>1.0.0'
-gem 'actionpack-page_caching', '~>1.0.0'
-gem 'actionpack-xml_parser', '~>1.0.0'
-gem 'actionview-encoded_mail_to', '~>1.0.4'
-gem 'activerecord-session_store', '~>0.0.1'
-gem 'activeresource', '~>4.0.0'
-gem 'protected_attributes', '~>1.0.1'
-gem 'rails-observers', '~>0.1.1'
-gem 'rails-perftest', '~>0.0.2'
-gem 'rubyzip', '~>0.9.9'
+FactoryGirl.create(:user)
+FactoryGirl.build(:user)
+FactoryGirl.build_stubbed(:user)
 
+factory :user do
+  ...
+  activation_code { User.generate_activation_code }
+  date_of_birth   { 21.years.ago }
+end
+
+FactoryGirl.define do
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+end
+
+ FactoryGirl.define do
+   factory :user do
+     name ‘Joe Blow’
+     email { ‘#{name.gsub(/\s/, ‘.’)}@example.com’.downcase }
+     password ‘p@ssw0rd’
+     admin false
+   end 
+ end
 
 
 -----------------------------------------------------------------------------
@@ -125,6 +108,69 @@ expect(page).to have_content('baz')
 expect(find('#sidebar').find('h1')).to have_content('Something')
 
 expect(page).to have_selector(".header .username", :text => "jdoe")
+
+-----------------------------------------------------------------------------
+                            
+-----------------------------------------------------------------------------
+
+
+
+
+
+-----------------------------------------------------------------------------
+                            Rspec
+-----------------------------------------------------------------------------
+
+
+
+
+expect(page).to have_selector(".header .username", :text => "jdoe")
+expect(page).to have_text("Widget was successfully created.")
+
+bundle exec rspec spec/requests/authentications_spec.rb
+bundle exec rspec spec/requests/user_authentications_spec.rb
+bundle exec rspec spec/requests/users_spec.rb
+
+bundle exec rspec spec/features/user_sign_in_spec.rb
+
+
+$ bundle exec rspec -fd
+
+screenshot_and_save_page
+```
+
+Or for screenshot only, which will automatically open the image.
+
+```ruby
+screenshot_and_open_image
+-----------------------------------------------------------------------------
+RAKE
+-----------------------------------------------------------------------------
+
+rake -T | grep spec
+rake rails:update
+rake db:migrate RAILS_ENV=test
+rake test:models TEST_OPTS="--verbose"   
+rake test:units  same as rake  test:models
+rake test:functionals  same as rake  test:controllers                             
+rake test:helpers and rake test:mailers only work with new folder structure
+
+-----------------------------------------------------------------------------
+GEMS
+-----------------------------------------------------------------------------
+gem 'actionpack-xml_parser'
+gem 'actionpack-action_caching', '~>1.0.0'
+gem 'actionpack-page_caching', '~>1.0.0'
+gem 'actionpack-xml_parser', '~>1.0.0'
+gem 'actionview-encoded_mail_to', '~>1.0.4'
+gem 'activerecord-session_store', '~>0.0.1'
+gem 'activeresource', '~>4.0.0'
+gem 'protected_attributes', '~>1.0.1'
+gem 'rails-observers', '~>0.1.1'
+gem 'rails-perftest', '~>0.0.2'
+gem 'rubyzip', '~>0.9.9'
+
+
 
 
 capybara-feature_helpers

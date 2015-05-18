@@ -1,1 +1,5 @@
 <%= link_to "My Scriptures", user_scriptures_path(@user.id) %>
+
+<%= link_to "My Profile", user_profile_index_path(@user.id) %>
+
+<%= link_to "Update Credentials", edit_user_registration_path(@user.id) %>

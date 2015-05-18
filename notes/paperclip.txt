@@ -1,0 +1,80 @@
+class User < ActiveRecord::Base
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+end
+
+
+class AddAvatarColumnsToUsers < ActiveRecord::Migration
+  def self.up
+    add_attachment :users, :avatar
+  end
+
+  def self.down
+    remove_attachment :users, :avatar
+  end
+end
+
+
+<%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %>
+
+
+def create
+  @user = User.create( user_params )
+end
+
+private
+
+def user_params
+  params.require(:user).permit(:avatar)
+end
+
+
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+
+validates :avatar, :attachment_presence => true
+validates_with AttachmentPresenceValidator, :attributes => :avatar
+validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
+
+validates_attachment_presence :avatar
+
+validates_attachment :avatar, :presence => true,
+  :content_type => { :content_type => "image/jpeg" },
+  :size => { :in => 0..10.kilobytes }
+  
+  
+module YourApp
+  class Application < Rails::Application
+    # Other code...
+
+    config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
+  end
+end
+  
+  
+  
+class Book < ActiveRecord::Base
+  has_attached_file :document, styles: {thumbnail: "60x60#"}
+  validates_attachment :document, content_type: { content_type: "application/pdf" }
+  validates_something_else # Other validations that conflict with Paperclip's
+end
+
+class BooksController < ApplicationController
+  def create
+    @book = Book.new(book_params)
+    @book.document = params[:book][:document]
+    @book.save
+    respond_with @book
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :author)
+  end
+end  
+  

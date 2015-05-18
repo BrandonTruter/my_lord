@@ -1,0 +1,113 @@
+<style type="text/css" media="screen">
+  div.fields {width: 90%; margin: 10px auto; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+  div.actions {width: 80%; text-align: center; margin: 20px auto;}
+  
+  div.loading_spiner { 
+    text-align: center; display: none; z-index: 1; position: relative; margin: 20px auto 20px auto;
+  }
+
+  p.spiner-heading {
+    text-shadow: 1px 2px 0 silver; font-size: 32px; font-variant: small-caps; font-weight: 200; text-decoration: underline;
+  }
+    
+  span.loader-msg {font-size: 18px; font-style: italic; font-variant: small-caps; text-decoration: none;}
+      
+</style>
+
+<div class="loading_spiner">
+  <p class="spiner-heading">Scripture Update</p>
+  <span class="loader-msg">Please wait as we update your scripture details ...</span><br>
+</div>
+
+<div id="edit_scripture">
+  <h1><%= "Editing scripture #{@scripture.title.upcase}" %></h1>
+  
+  <%= form_for [@user, @scripture], :id => "edit_user_form" do |f| %>
+
+    <div class="fields" id="title_fields">
+      <%= f.label :title, "Title" %>
+      <%= f.text_field :title, :value => @scripture.title, :id => "scripture_title" %>
+    </div>
+  
+    <div class="fields">
+      <%= f.label :reference, "Reference" %>
+      <%= f.text_field :reference, :value => @scripture.reference, :id => "scripture_reference" %>
+    </div>
+  
+    <div class="fields">
+      <%= f.label :verse, "Verse" %>
+      <%= f.text_field :verse, :value => @scripture.verse, :id => "scripture_verse" %>
+    </div>
+  
+    <div class="actions">
+      <%= link_to "Cancel", user_scripture_path(@user.id, @scripture.id), style: "float: left;" %>
+      <%= f.submit "Update", style: "float: right;" %>
+    </div>
+
+    <div style="clear: both;"></div>
+    
+  <% end %>
+  
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $('form#edit_user_form').submit(function(){
+  
+      if (validateForm()) {
+        $(".edit_scripture").css("display", "none");
+        $(".loading_spiner").css("display", "block");
+      }
+      else { 
+        return false; 
+      }
+  
+    });
+    
+  });
+  
+  function validateForm() {
+    validation_msg = "";
+    
+    var error_field = { 'background' : 'linear-gradient(#f2f2f2, #ffeded) repeat scroll 0 0 rgba(0, 0, 0, 0)', 'border' : '1px solid #EEA0A0', 'color':'#a60b0b' }  
+    var normal_field = { 'background' : 'white', 'border' : '1px solid #d7d7d7', 'color':'black' }
+    var normal_msg = { 'color':'#457c98' , 'font-size':'16px' };
+    var error_msg = { 'color':'red', 'font-size':'larger' };
+    
+    // Title validation
+    if ($("#scripture_title").val() == "" || $("#scripture_title").val().length <= 0 ) {
+      validation_msg += "Cant be blank!";
+      $("#scripture_title").css(error_field).prev().css( error_msg ).text("Please provide the scripture's title");
+    } 
+    else {
+      $("#scripture_title").css(normal_field).prev().css( normal_msg ).text("Title");
+    }
+
+    // Reference validation
+    if ($("#scripture_reference").val() == "" || $("#scripture_verse").val().length <= 0 ) {
+      validation_msg += "Cant be blank!";
+      $("#scripture_reference").css(error_field).prev().css( error_msg ).text("Please provide the scripture's reference");
+    } 
+    else {
+      $("#scripture_reference").css(normal_field).prev().css( normal_msg ).text("Reference");
+    }
+    
+    // Verse validation
+    if ($("#scripture_verse").val() == "" || $("#scripture_verse").val().length <= 0 ) {
+      validation_msg += "Cant be blank!";
+      $("#scripture_verse").css(error_field).prev().css( error_msg ).text("Please provide the scripture's verse");
+    } 
+    else {
+      $("#scripture_verse").css(normal_field).prev().css( normal_msg ).text("Verse");
+    }    
+        
+    if (validateForm == "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+</script>

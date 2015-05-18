@@ -1,0 +1,168 @@
+class AddDefaultRoleToUser < ActiveRecord::Migration
+  def self.up
+    add_column :users, :roles, "--- ['user']"
+  end
+
+  def self.down
+    change_column_default :users, :roles, "--- []"
+  end
+end
+
+  def self.up
+    add_column :users, :roles, :string, :default => "--- []"
+  end
+
+  def self.down
+    remove_column :users, :roles
+  end
+  
+-----------------------------------------------------------------
+
+class AddBirthDatesToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :date_of_birth, :date
+  end
+
+  def self.down
+    remove_column :users, :date_of_birth
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddAcceptTosToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :accept_tos, :boolean
+  end
+
+  def self.down
+    remove_column :users, :accept_tos
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddResetPasswordSentAtToUsers < ActiveRecord::Migration
+  def self.up
+    unless column_exists?(:users, :reset_password_sent_at)
+      add_column :users, :reset_password_sent_at, :datetime
+    end
+  end
+
+  def self.down
+    if column_exists?(:users, :reset_password_sent_at, :datetime)
+      remove_column :users, :reset_password_sent_at
+    end
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddFamilySizeToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :family_size, :integer
+  end
+
+  def self.down
+    remove_column :users, :family_size
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddMonthlyNewsletterToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :monthly_newsletter, :boolean
+  end
+
+  def self.down
+    remove_column :users, :monthly_newsletter
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddNetSalaryToUser < ActiveRecord::Migration
+  def self.up
+    add_column :users, :net_salary, :float
+  end
+
+  def self.down
+    remove_column :users, :net_salary
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddReferenceToUsers < ActiveRecord::Migration
+  class User < ActiveRecord::Base
+  end
+  
+  def self.up
+    add_column :users, :reference, :string
+    User.reset_column_information
+    User.find_each do |user|
+      user.reference = user.id.to_s
+      puts user.reference
+      user.save!
+    end
+  end
+
+  def self.down
+    remove_column :users, :reference
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddAddressToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :street_number, :string
+    add_column :users, :street_name, :string
+    add_column :users, :suburb, :string
+    add_column :users, :city, :string
+    add_column :users, :province, :string
+    add_column :users, :postal_code, :string
+  end
+end
+
+
+-----------------------------------------------------------------
+
+class AddColumnsToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :signature, :string
+    add_column :users, :occupation, :string
+    add_column :users, :spouse_first_name, :string
+    add_column :users, :spouse_last_name, :string
+    add_column :users, :spouse_id, :string
+    add_column :users, :spouse_occupation, :string
+    add_column :users, :spouse_signature, :string
+    add_column :users, :dept_counselling_app_date, :datetime
+  end
+end
+
+
+-----------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------
+
+
+

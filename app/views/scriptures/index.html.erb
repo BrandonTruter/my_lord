@@ -1,1 +1,53 @@
-<%= link_to "New", new_user_scripture_path(@user.id) %>
+<style type="text/css" media="screen">
+
+  div#scriptures { width: 80%; margin: 15px auto; }
+  h1.scripture_heading { font-size: larger; text-decoration: underline; text-align: center;}
+  
+  div.daily_scripture_div { float: right; width: 40%; margin: 0 auto; } 
+  p#daily_scripture { font-size: smaller; font-weight: lighter; text-align: center; } 
+    
+  div.scripture_fields_div { float: left; width: 60%; margin: 0 auto; }  
+  
+  div.fields { margin: 5px 20px; padding: 6px; }
+  p.titles { font-size: larger; text-decoration: underline; }
+  p.reference { font-weight: 800; color: silver; }
+    
+  div.actions { margin-top: 10px; text-align: center; }
+  .left_link {float: left;}
+  .right_link {float: right;}
+  
+  div.links { clear: both; width: 60%; margin: 10px auto; border-top: 1px solid #eee; padding-top: 18px; text-align: center; }
+    
+</style>
+
+<div id="scriptures">
+  <h1 class="scripture_heading">My Scriptures</h1>
+  
+  <div class="scripture_fields_div">      
+    <% @scriptures.each do |scripture| %>
+      <div class="fields">
+        <p class="titles">
+          <%= scripture.title %>
+        </p>
+        <p class="reference">
+          <%= scripture.reference %>
+        </p>
+      </div>
+
+      <div class="actions">
+        <%= link_to "View", user_scripture_path(@user.id, scripture.id), :class => "left_link" %>
+        <%= link_to "Edit", edit_user_scripture_path(@user.id, scripture.id), :class => "right_link" %>
+      </div>    
+    <% end %>
+  </div>
+  
+  <div class="daily_scripture_div">
+    <p id="daily_scripture"><%= @daily_verse %></p>
+  </div>
+      
+  <div class="links">
+    <%= link_to "Home", root_path %>
+    <%= link_to "New", new_user_scripture_path(@user.id) %>
+  </div>
+
+</div>

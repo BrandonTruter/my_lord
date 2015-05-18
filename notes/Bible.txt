@@ -1,0 +1,272 @@
+-------------------------------------------------------------------------------------
+biblesearch-api
+-------------------------------------------------------------------------------------
+
+Add this line to your application's Gemfile:
+
+gem 'biblesearch-api'
+And then execute:
+
+$ bundle
+Or install it yourself as:
+
+$ gem install biblesearch-api
+Usage
+biblesearch = BibleSearch.new('YOUR_API_KEY')
+
+# Let's get some versions
+versions = biblesearch.versions
+spanish_versions = biblesearch.versions(:language => 'spa')
+
+# When you request a version, you'll need to include it's language-code prefix
+version = biblesearch.version('spa-TLA')
+
+# Let's get some books
+books = biblesearch.books('spa-TLA')
+# You can also provide a testament
+old_testament_books = biblsearch.books('spa-TLA', 'OT')
+# A single book can be specified as a hash ...
+book = biblesearch.book(:version_id => 'spa-TLA', :book_id => '2Tim')
+# ... or as a string
+book = biblesearch.book('spa-TLA:2Tim')
+
+# Let's get some chapters for the book, either via hash ...
+chapters = biblesearch.chapters(:version_id => 'spa-TLA', :book_id => '2Tim')
+# ... or string
+chapters = biblesearch.chapters('spa-TLA:2Tim')
+# A single chapter can be specified as a hash ...
+chapter = biblesearch.chapter(:version_id => 'spa-TLA', :book_id => '2Tim', :chapter => 1)
+# ... or as a string
+chatper = biblesearch.chapter('spa-TLA:2Tim.1')
+
+# Let's get some verses
+verses = biblesearch.verses("eng-CEV:John.1","16","17")
+# A single verse can be specified as a hash ...
+verse = biblesearch.verse(:version_id => 'spa-TLA', :book_id => 'Acts', :chapter => '8', :verse => '34')
+# ... or as a string
+verse = biblesearch.verse('spa-TLA:Acts.8.34')
+
+# Let's do a search
+results = biblesearch.search('john 3:16') #passage search
+results = biblesearch.search('mary') #keyword search
+
+# Let's get some passages for a single version ...
+passages = biblesearch.passages('john 3:16', :version => 'eng-KJVA')
+# ... or for multiple versions
+passages = biblesearch.passages('john 3:16', :versions => ['eng-KJVA', 'eng-CEV'])
+Return values
+
+All methods return a Hashie::Mash, and all of these mashes respond to #fums, which contains a string describing the FUMS for the call that was made.
+
+Plural calls (#passages, #versions, #search, etc) respond to #collection with an array of mashes.
+
+Singular calls (#version, #verse, etc) respond to #value with a mash.
+
+
+-------------------------------------------------------------------------------------
+bible_parser
+-------------------------------------------------------------------------------------
+
+gem install bible_parser
+Use
+You can get the a bible in XML format here.
+
+require 'bible_parser'
+
+bible = BibleParser.new(File.open('web.usfx.xml'))
+verse = bible.books.first.chapters.first.verses.first
+# => <Genesis 1:1>
+verse.text
+# => "In the beginning, God created the heavens and the earth.\n"
+
+
+-------------------------------------------------------------------------------------
+EsvBible
+-------------------------------------------------------------------------------------
+
+* Wrapper for English Standard Version (ESV) Bible Web Service
+
+== DESCRIPTION:
+
+See ESV API docs http://www.esvapi.org/
+
+== FEATURES/PROBLEMS:
+
+* FIX (list of features or problems)
+
+== SYNOPSIS:
+
+  bible = EsvBible.new('YOUR API KEY HERE')
+
+  verse   = bible.verse   'Gen 1:1'
+  passage = bible.passage 'Gen 1'
+  
+  verse   = bible.verse   'John 1:1', {:output_format => :text, :include_headings => false}
+
+== REQUIREMENTS:
+
+* rspec - for testing
+
+== INSTALL:
+
+* sudo gem install esv_bible
+
+source is hosted at https://github.com/gdagley/esv_bible
+
+-------------------------------------------------------------------------------------
+BibleRef
+-------------------------------------------------------------------------------------
+
+This small Rubygem does its best at taking a user-input string like "john 3:16" and turning it into something useful for querying a database (this is how we use it in bible_api).
+
+Usage
+ref = BibleRef::Reference.new('jn 3:16')
+# #<BibleRef::Reference:0x000001020f7000 @reference="jn 3:16", @details={:book=>"jn", :refs=>{:chapter=>3, :verse=>16}}>
+
+ref.valid?
+# true
+
+ref.book.id
+# "JHN"
+
+ref.normalize
+# "John 3:16"
+Ranges
+Call #ranges to get from/to pairs of verses.
+
+BibleRef::Reference.new('john 3:16').ranges
+# [
+#   [{ book: 'JHN', chapter: 3, verse: 16 },
+#    { book: 'JHN', chapter: 3, verse: 16 }]
+# ]
+
+BibleRef::Reference.new('Romans 12:1,3-4 & 13:2-4,7-8').ranges
+# [
+#   [{ book: 'ROM', chapter: 12, verse: 1 },
+#    { book: 'ROM', chapter: 12, verse: 1 }],
+#   [{ book: 'ROM', chapter: 12, verse: 3 },
+#    { book: 'ROM', chapter: 12, verse: 4 }],
+#   [{ book: 'ROM', chapter: 13, verse: 2 },
+#    { book: 'ROM', chapter: 13, verse: 4 }],
+#   [{ book: 'ROM', chapter: 13, verse: 7 },
+#    { book: 'ROM', chapter: 13, verse: 8 }]
+# ]
+You can then take this and turn it into a few small SQL queries like this:
+
+verses = ranges.map do |from_ref, to_ref|
+  first = DB['select id from verses where book = :book and chapter = :chapter and verse = :verse limit 1', from_ref].first
+  last  = DB['select id from verses where book = :book and chapter = :chapter and verse = :verse limit 1', to_ref].first
+  DB['select * from verses where id between ? and ?', first['id'], last['id']]
+end
+
+-------------------------------------------------------------------------------------
+BibleSearch::API
+-------------------------------------------------------------------------------------
+
+Add this line to your application's Gemfile:
+
+gem 'biblesearch-api'
+And then execute:
+
+$ bundle
+Or install it yourself as:
+
+$ gem install biblesearch-api
+Usage
+
+biblesearch = BibleSearch.new('YOUR_API_KEY')
+
+# Let's get some versions
+versions = biblesearch.versions
+spanish_versions = biblesearch.versions(:language => 'spa')
+
+# When you request a version, you'll need to include it's language-code prefix
+version = biblesearch.version('spa-TLA')
+
+# Let's get some books
+books = biblesearch.books('spa-TLA')
+# You can also provide a testament
+old_testament_books = biblsearch.books('spa-TLA', 'OT')
+# A single book can be specified as a hash ...
+book = biblesearch.book(:version_id => 'spa-TLA', :book_id => '2Tim')
+# ... or as a string
+book = biblesearch.book('spa-TLA:2Tim')
+
+# Let's get some chapters for the book, either via hash ...
+chapters = biblesearch.chapters(:version_id => 'spa-TLA', :book_id => '2Tim')
+# ... or string
+chapters = biblesearch.chapters('spa-TLA:2Tim')
+# A single chapter can be specified as a hash ...
+chapter = biblesearch.chapter(:version_id => 'spa-TLA', :book_id => '2Tim', :chapter => 1)
+# ... or as a string
+chatper = biblesearch.chapter('spa-TLA:2Tim.1')
+
+# Let's get some verses
+verses = biblesearch.verses("eng-CEV:John.1","16","17")
+# A single verse can be specified as a hash ...
+verse = biblesearch.verse(:version_id => 'spa-TLA', :book_id => 'Acts', :chapter => '8', :verse => '34')
+# ... or as a string
+verse = biblesearch.verse('spa-TLA:Acts.8.34')
+
+# Let's do a search
+results = biblesearch.search('john 3:16') #passage search
+results = biblesearch.search('mary') #keyword search
+
+# Let's get some passages for a single version ...
+passages = biblesearch.passages('john 3:16', :version => 'eng-KJVA')
+# ... or for multiple versions
+passages = biblesearch.passages('john 3:16', :versions => ['eng-KJVA', 'eng-CEV'])
+Return values
+
+All methods return a Hashie::Mash, and all of these mashes respond to #fums, which contains a string describing the FUMS for the call that was made.
+
+Plural calls (#passages, #versions, #search, etc) respond to #collection with an array of mashes.
+
+Singular calls (#version, #verse, etc) respond to #value with a mash.
+
+
+-------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+
+
+
+
+= Introduction
+
+This library provides tools to parse Bible references, look them up on the web (in a variety of translations) and to display them in an interactive console session.
+
+= Interactive Use
+
+To use the library as-is, run the included "bible" command. Enter a verse at the prompt and its corresponding text will be displayed. By default, the Revised Standard Version translation is used. The Douey-Rheims and New American Bible translations are also available.
+
+If a reference is instead provided to the script, the interactive console will not be shown. Instead, the corresponding text will be looked up and printed.
+
+== Windows Only Features
+
+If the 'win32console' gem is available, the interactive console will print verses with bolded book and chapter headings. If the gem is not available, or the console is not being run on a Win32 system, those features will not be used.
+
+= Library Design
+
+The easiest way to use the library is through the Bible module. If 'bible' is required:
+
+require 'bible'
+
+Then the Bible module gets an index method ('[]') added which can take a reference string and a lookup. It will return an iterator that can produce the text of the reference.
+
+The reference returned also allows access to the individual books, chapters, and/or verses that might be contained. The methods available on the object are dependent on the type of reference parsed. For example, if multiple books were inlclude, the a "books" method is available. Otherwise, only a "book" method is available. This design was inspired by Martin Fowler's post "Humane Interfaces" (http://www.martinfowler.com/bliki/HumaneInterface.html). The "test_bible.rb" file in the "test" directory contains a wide variety of reference forms and corresponding tests of the methods available.
+
+= Limitations
+
+The library is not able to handle the different book and numbering schemes in widely differing bibles very well. Instead, it uses a very broad definition of the Bible to internally parse references given.
+
+= Acknowledgements
+
+Of course, my thanks to Matz for creating Ruby. What a joy it is to program in. I'm also indebted to the fine coders of the "commandline" and "highline" libraries. Finally, my thanks to the King of Kings, Jesus Christ, for the gift of this life. Amen.

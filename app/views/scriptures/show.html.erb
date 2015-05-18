@@ -1,2 +1,22 @@
-<h1>Scriptures#show</h1>
-<p>Find me in app/views/scriptures/show.html.erb</p>
+<div id="scriptures">
+  <h1><%= @scripture.title.upcase %></h1>
+  
+  <div class="details" id="reference">
+    <h4>Reference</h4>
+    <p><%= @scripture.reference %></p>
+  </div>
+  
+  <div class="details" id="verse">
+    <h4>Verse</h4>
+    <p><%= @scripture.verse %></p>    
+  </div>
+  
+  <div class="actions" style="width: 80%; text-align: center; margin: 20px auto;">
+    <%= link_to "Back", user_scriptures_path(@user.id), style: "float: left;" %>
+    <%= link_to "Edit", edit_user_scripture_path(@user.id, @scripture.id), style: "float: none; text-align: center;" %>    
+    <%= link_to "Home", root_path, style: "float: right;" %>
+  </div>
+  
+  <div style="clear: both;"></div>
+  
+</div>
