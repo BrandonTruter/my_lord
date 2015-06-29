@@ -1,4 +1,29 @@
 
+
+
+http://localhost:3000/assets/application.css
+
+
+  font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+  
+  font-style: 
+    normal
+    italic
+    oblique
+  font-variant: 
+    normal 
+    small-caps
+  font-weight: 
+    normal
+    bold
+    ..px
+    
+  text-transform: 
+    capitalize
+    uppercase
+    lowercase    
+
+
 -------------------------
         commands
 -------------------------

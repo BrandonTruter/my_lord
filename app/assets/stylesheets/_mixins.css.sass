@@ -1,0 +1,82 @@
+@mixin radius($radius)
+  border-radius: $radius
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+
+@mixin inline
+  display: inline-block
+  vertical-align: middle  
+  vertical-align: auto  
+  zoom: 1
+  padding: 4px 10px
+  
+@mixin shadow($size1, $size2, $size3, $color)
+  -webkit-box-shadow: $size1 $size2 $size3 $color
+  -moz-box-shadow: $size1 $size2 $size3 $color
+  box-shadow: $size1 $size2 $size3 $color
+
+@mixin triple-shadow($size1, $size2, $size3, $size4, $color)
+  -webkit-box-shadow: $size1 $size2 $size3 $size4 $color
+  -moz-box-shadow: $size1 $size2 $size3 $size4 $color
+  box-shadow: $size1 $size2 $size3 $size4 $color
+
+@mixin linear-background($color1, $color2)
+  background: linear-gradient($color1, $color2)
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+  background: -webkit-linear-gradient($color1, $color2)
+  background: -moz-linear-gradient($color1, $color2)
+  background: -ms-linear-gradient($color1, $color2)
+  background: -o-linear-gradient($color1, $color2)
+
+@mixin triple-background($color1, $color2, $color3)
+  background: linear-gradient($color1, $color2, $color3)
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+  background: -webkit-linear-gradient($color1, $color2, $color3)
+  background: -moz-linear-gradient($color1, $color2, $color3)
+  background: -ms-linear-gradient($color1, $color2, $color3)
+  background: -o-linear-gradient($color1, $color2, $color3)  
+
+@mixin legends
+  font-size: 1.3em
+  margin-bottom: -10px
+  padding-left: 10px
+  padding-right: 10px
+  text-decoration: underline
+  font-style: italic
+  color: gray      
+    
+@mixin error-field($radius, $shadow1, $shadow2, $shadow3, $shadowcolor, $background1, $background2, $background3)
+  @include radius($radius)
+  @include shadow($shadow1, $shadow2, $shadow3, $shadowcolor)  
+  @include triple-background($background1, $background2, $background3)
+  
+/* @include header_advanced(silver, normal, small-caps, 400, 32px, "Lucida Grande", center, 0 1px 1px #c0c0c0, underline, capitalize) */
+  
+@mixin header_advanced($color, $font_style, $font_variant, $font_weight, $font_size, $font_family, $text_align, $text_shadow, $text_decoration, $text_transform)
+  color: $color
+  font-style: $font_style
+  font_variant: $font_variant
+  font_weight: $font_weight
+  font_size: $font_size
+  font_family: $font_family
+  text_align: $text_align
+  text_shadow: $text_shadow
+  text_decoration: $text_decoration
+  text_transform: $text_transform
+
+  
+@mixin basic_container($width, $margin)
+  width: $width
+  margin: $margin
+  
+/* @include field_container( black, 80%, 10px auto, 4px, 2px, 0px, 2px, 2px, silver, white, #eee) */
+@mixin enhanced_container($color, $width, $margin, $padding, $radius, $shadow1, $shadow2, $shadow3, $shadowcolor, $background1, $background2)
+  color: $color
+  width: $width
+  margin: $margin
+  padding: $padding
+  @include radius($radius)
+  @include shadow($shadow1, $shadow2, $shadow3, $shadowcolor)
+  @include linear-background($background1, $background2)
+  
+  

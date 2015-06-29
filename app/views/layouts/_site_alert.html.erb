@@ -1,0 +1,25 @@
+<% @site_alert = SiteAlert.order('updated_at DESC').limit(1).first %>
+<% if @site_alert.present? %>
+  <a id="site_alert" href="#new_notification" style="display:none"></a>
+  <div style="display:none" class="container">
+    <div id="new_notification">
+      <!-- user_site_alerts are loaded here  -->
+      <%= raw @site_alert.body %>
+    </div>
+  </div>
+
+  <% if current_user && current_user.completed_registration? && current_user.user_site_alerts.where(site_alert_id: @site_alert.id).empty? %>
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $("#site_alert").fancybox({
+        'showNavArrows' : false,
+        'hideOnContentClick' : false,
+        'onClosed' : function() {
+          $.get('<%= raw close_site_alert_user_path(current_user, site_alert_id: @site_alert.id) %>');
+        }
+      });
+      $("#site_alert").trigger('click');
+    });
+    </script>
+  <% end %>
+<% end %>

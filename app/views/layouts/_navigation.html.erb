@@ -1,0 +1,100 @@
+<!-- Signed in users -->
+<% if user_signed_in? %>
+
+<!-- Consultant -->
+  <% if current_user.is_consultant? %>
+  
+    <!--  If consultant is logged in  -->    
+    <% if session[:target_user].blank? %>
+      <li class="last"><%= link_to "New User", new_user_path %></li>
+      <li class="last"><%= link_to "Users", users_path %></li>
+      <li class="last"><%= link_to "Profile", consultant_profile_path(current_user) %></li>
+      <li class="last"><%= link_to "Calendar", activity_calendar_path(current_user.id) %></li>
+      
+    <!--  If consultant is logged in with 1 of their users  -->   
+    <% else %>
+      <li class="last"><%= link_to "Working on #{session[:target_name]} (Finish with this user)", reset_target_users_path %></li>
+      <% if @budget && !@budget.new_record? %>
+        <li><%= link_to "Add tip", new_user_budget_tip_path(@budget.user, @budget), :rel => "boxy" %></li>
+      <% end %>
+      <% if @user && @user.has_previous_completed_budget? %>
+        <li class="<%= 'current' if (content_for(:body_id) == 'budget-page') %>">
+          <%= link_to "Detailed Cashflow", user_budget_path(@user, @user.budgets.where('id IS NOT NULL').last) %>
+        </li>
+      <% end %>
+      <% if !@user.has_budget? %>
+        <li class="<%= 'current' if (content_for(:body_id) == 'budget-page') %>">
+          <%= link_to "Add Budget", new_user_budget_path(@user) %>
+        </li>
+      <% end %>
+      <li class="<%= 'current' if (content_for(:body_id) == 'my-snapshot') %>">
+        <%= link_to "Home", user_path(session[:target_user]) %>
+      </li>
+    <% end %>
+
+<!-- Admin -->
+  <% elsif  current_user.is_super? || current_user.is_admin? %>    
+    <li class="last"><%= link_to "Admin Control Panel", "/admin" %></li>
+
+<!-- Manager -->
+  <% elsif current_user.is_manager? %>
+      <li><%= link_to "/users/#{@user.id}/search",  :class=>"btn_viewbudget", :style => "font-size:larger; margin-right:50px;", :method => :get do%>
+          <i class="ss-icon" style="padding-right:15px;">search</i>Basic Seach
+        <% end %>
+      </li>
+      
+      <li><%= link_to advanced_search_users_path,  :class=>"btn_viewbudget", :style => "font-size:larger; margin-right:50px;", :method => :get do%>
+          <i class="ss-icon" style="padding-right:15px;">search</i>Advanced Seach
+        <% end %>
+      </li>
+      
+<!-- General user -->
+  <% else %>
+    
+    <li><%= link_to "Home", user_path(current_user) %></li>
+    <% if !current_user.has_budget? %>
+      <li><%= link_to "Add Budget", new_user_budget_path(current_user) %></li>
+    <% end %>
+      <li><%= link_to "Knowledge Library", "/educations" %></li>
+    <% if current_user.has_previous_completed_budget? %>
+      <li><%= link_to "Reports", snapshot_user_path(current_user) %></li>
+    <% end %>
+    <% if current_user.completed_registration? %>
+      <li><%= link_to "Targets", user_target_groups_path(current_user) %></li>
+    <% end %>
+    <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+    <li><%= link_to "My Subscription", edit_user_registration_path(current_user) %></li> <!--My Subscription -->
+  <% end %>
+  <li><%= link_to "Signout", destroy_user_session_path, :id => "logout", :class => "button button-primary small" %></li>
+ 
+<!-- Users not signed in --> 
+<% else %>  
+  <%= nav_link "Home", root_path %>
+  <%= nav_link "About", about_path %>
+  <%= nav_link "Services", service_details_path %>
+  <li><a href="http://blog.6cents.co.za/"
+    target="_blank">Blog</a></li>
+  <%= nav_link "Contact", contact_path %>
+<% end %>
+
+<!-- begin SnapEngage code -->
+<script type="text/javascript">
+  (function() {
+    var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+    se.src = '//storage.googleapis.com/code.snapengage.com/js/413b404d-91af-4136-a67a-9cf9e27d1114.js';
+    var done = false;
+    se.onload = se.onreadystatechange = function() {
+      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+        done = true;
+        /* Place your SnapEngage JS API code below */
+        /* SnapEngage.allowChatSound(true); Example JS API: Enable sounds for Visitors. */
+      }
+    };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+  })();
+</script>
+<!-- end SnapEngage code --> 
+
+
+
+

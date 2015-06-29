@@ -15,12 +15,19 @@ class ProfileController < ApplicationController
   end  
 
   def new
-    # @profile = @user.profile.new
     @profile = Profile.new
   end
   
   def create
-    # @profile = @user.profile.
+    @profile = Profile.new(profile_params)
+    @profile.user = @user.id
+    
+    if @profile.save
+      
+      redirect_to user_profile_path(@user.id, @profile.id)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,8 +41,11 @@ class ProfileController < ApplicationController
   def find_user
     @user = params[:user_id].nil? ? current_user : User.find(params[:user_id])
   end
+  
+  protected
 
-  # def profile_params
-    # params.require(:scripture).permit(:title, :reference, :verse)
-  # end
+  def profile_params
+    params.require(:scripture).permit(:middle_name, :language, :phone, :gender, :date_of_birth, :qualifications, :net_salary, :company, :position, :occupation, :married, :family_size, :spouse_first_name, :spouse_last_name, :spouse_occupation, :street_number, :street_name, :suburb, :city, :province, :postal_code)
+  end
+  
 end

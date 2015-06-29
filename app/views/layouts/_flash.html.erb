@@ -1,0 +1,3 @@
+<%- flash.each do |name, msg| -%>
+  <%= js add_gritter("#{msg}", :time => 3000) %>
+<%- end -%>

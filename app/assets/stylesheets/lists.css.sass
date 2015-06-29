@@ -1,0 +1,41 @@
+
+
+ul.user_list
+  line-height: 35px
+  margin-left: 120px
+  text-align: left
+  li
+    list-style-image: url('/assets/list.png')
+    font-weight: 400
+    font-size: 18px
+    padding-left: 15px
+    &:hover
+      list-style-image: url('/assets/list-next.png')
+      font-size: 22px
+      font-weight: 600
+      padding: 3px 10px 10px 10px
+      text-decoration: underline
+      
+
+ul#tabs
+  margin: 20px 0px 0px 10px
+  padding: 0
+  li
+    @include inline
+    &.current
+      a
+        background: #8eba41
+        color: #ffffff
+        text-shadow: none
+    a 
+      background: #e2ebf0
+      @include radius(3px)
+      padding: 12px 10px
+      color: #474747
+      text-shadow: 1px 1px #ffffff
+      &:hover
+        background: #8eba41
+        color: #ffffff
+        text-shadow: none
+        
+        

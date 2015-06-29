@@ -1,0 +1,203 @@
+.welcome_page
+  padding: 0
+  
+  div#welcome_head
+    width: 85%
+    margin: 2px auto 0 80px
+    display: inline-block
+    position: relative
+    padding-bottom: 10px
+    border-bottom: 1px solid #eeeeee
+    
+    div.header_section
+      width: 50%
+      margin: 26px auto 5px
+      h1
+        color: #808080
+        font-size: 34px
+        font-weight: 500
+        text-shadow: 2px 2px 1px #d6d6d6
+      span.shadow
+        @include shadow(0px, 6px, 10px, #B9CBD5)
+        display: inline-block
+        height: 0
+        margin: -80px auto 25px -12px
+        padding: 18px 17px 38px
+        vertical-align: middle
+        width: 75%
+        
+    
+  div#welcome_content
+    margin: 5px auto 15px 5px
+    position: relative
+    text-align: center
+    width: 66%
+
+    div.welcome_intro
+      width: 100%
+      padding: 2px
+      p.welcome_message
+        font-size: 14px
+        font-weight: 500
+        color: #828282
+        text-align: center
+        width: 80%
+        margin: 5px auto
+        padding-bottom: 10px
+        border-bottom: 1px solid #eee
+      ul
+        line-height: 22px
+        margin-left: 22px
+        text-align: left
+        &.reason_list
+          line-height: 10px
+          margin: 0px 5px 4px
+          border: 0 none
+          li
+            border: 0 none
+            display: list-item
+            list-style: outside url("/assets/Lists/icon-arrow-right.png") disc
+            padding: 8px 2px 6px 5px
+            font-size: 12px
+            &:hover
+              @include triple-background(#fbfbfb, #ebebeb, #f4f4f4)              
+              @include shadow(1px, 1px, 4px, #bbbbbb)
+              @include radius(4px)
+              list-style-image: url("/assets/Lists/topaz.png")
+              cursor: pointer
+              font-weight: 600
+              height: 24px
+              width: 60%
+              padding: 3px 2px 3px 5px
+        &.feature_list
+          line-height: 8px
+          margin: 0px 5px 5px
+          li
+            border: 0 none
+            display: list-item
+            list-style: outside url("/assets/Lists/icon-arrow-right.png") disc
+            padding: 8px 2px 6px 5px
+            font-size: 12px
+            &:hover
+              @include triple-background(#fbfbfb, #ebebeb, #f4f4f4)              
+              @include shadow(1px, 1px, 4px, #bbbbbb)
+              @include radius(4px)
+              list-style-image: url("/assets/Lists/topaz.png")
+              cursor: pointer
+              font-weight: 600
+              height: 24px
+              width: 30%
+              padding: 3px 2px 3px 5px
+        li
+          font-size: 12px
+          font-weight: 300
+          list-style-image: url("/assets/Lists/diamond1.png")          
+          padding-left: 5px
+          width: 85%
+          &:hover
+            list-style-image: url('/assets/Lists/diamond.png')
+          hr.list_divider
+            border-bottom: 0 none
+            border-top: 1px solid #eaeaea
+            margin: 20px 0 2px 50px
+            text-align: center
+            width: 92%
+            height: 1
+            display: inline-block
+            &.second
+              margin: 20px 0 2px 98px
+              width: 70%
+        
+          p
+            color: #595959
+            font-family: Georgia
+            font-size: 16px
+            font-style: oblique
+            font-weight: 600
+            font-variant: small-caps
+            margin-bottom: 4px
+            text-decoration: underline
+          span
+            font-size: 14px
+            display: inline-block
+            position: relative
+            
+            &.purpose_message
+              text-align: left
+              font-size: 12px
+              color: black
+              font-weight: 300
+              margin: 4px 2px
+              display: block
+            &.reason_list
+              color: #5A6363
+              display: inline
+            &.feature_list
+              font-size: 16px
+
+
+    div.welcome_actions
+      width: 40%      
+      display: block
+      position: relative
+      border-top: 1px solid silver
+      padding-top: 8px
+      margin: 8px auto 12px
+      text-align: left
+      
+      a#btn_register, a#btn_login
+        padding: 6px 12px
+
+    
+  div#welcome_foot
+    display: block
+    position: relative
+    text-align: center
+    div.daily_inspiration
+      border-left: 1px solid #dedddd
+      border-top: 1px solid #e6e6e6
+      display: block
+      float: right
+      margin: 12px auto
+      padding: 10px 12px 0
+      position: relative
+      text-align: center
+      width: 30%
+      h4
+        color: #414141
+        font-size: 22px
+        font-variant: small-caps
+        text-align: center
+        text-decoration: underline
+        font-weight: 400
+        margin: 4px
+        padding: 0
+      span.daily_scripture
+        display: block
+        font-size: 14px
+        padding: 10px 20px
+        position: relative
+        vertical-align: middle
+        width: 87%       
+    div.daily_message
+      clear: both
+      margin-top: 35px
+      div.container      
+        img.daily_image
+          @include triple-shadow(1px, 1px, 4px, 2px, #8e8e8e)
+          float: right
+          margin-right: 10%
+          margin-top: 4%
+          padding: 12px
+          width: 120px
+          
+
+
+
+
+
+
+
+
+
+        

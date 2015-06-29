@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @page_title = "#{@user.middle_name} Page"
   end
   
   def destroy

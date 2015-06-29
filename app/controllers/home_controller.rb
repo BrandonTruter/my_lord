@@ -9,6 +9,10 @@ class HomeController < ApplicationController
   end
   
   def welcome
-    render 'welcome'
+    @daily_title = "Title placeholder"        # Daily Heading Title
+    @daily_scripture = "Scripture placeholder"    # random scripture
+    @daily_image = "daily_image.jpg"        # filename of image
+    
+    render "welcome", layout: "home"
   end
 end

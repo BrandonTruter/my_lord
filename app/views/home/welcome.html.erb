@@ -1,5 +1,70 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="welcome_page">
+  
+  <div id="welcome_head">
+    <div class="header_section">
+      <h1>Welcome to the Truth</h1>  
+      <span class="shadow"></span>
+    </div>
+  </div> <!-- /#welcome_head -->
+  
+  <div id="welcome_content">
+    
+    <div class="welcome_intro">
+      <p class="welcome_message">Thank you for taking the time to visit our site.<br> Below are a few guidelines of what you can expect: </p>
+      
+      <ul>
+        <li style="margin-left: 10%">
+          <p>Purpose</p>
+          <span class="purpose_message">
+            Spread the word of God, to bring him the Glory through praising He's Son, Jesus Christ.<br>
+            Encourage people to realize that this is the most valuable and precious way to spend their time.<br>
+            Help everyone understand that this is the path to Everlasting Life
+          </span>  
+        </li>
+        <li style="list-style: outside none none;"><hr class="list_divider" /></li>  
+        <li style="margin-left: 18%;">
+          <p>Reason</p>
+          <ul class="reason_list">
+            <li>Bring the <ins>Body Of Christ</ins> together</li>  
+            <li>Provide oppertunities to gather new believers</li>  
+            <li>Offer inspiration and guidance where possible</li>
+            <li>Motivate and Encourage everyone for bible study</li>
+          </ul>
+        </li>        
+        <li style="list-style: outside none none;"><hr class="list_divider second" /></li>          
+        <li style="margin-left: 28%;">
+          <p>Features</p>
+          <ul class="feature_list">
+            <li>Bible Study</li>
+            <li>Dictionary Lookup</li>
+            <li>List of Favourites</li>
+            <li>Social Networking</li>
+          </ul>
+        </li>
+      </ul>
 
-<%= link_to "Register", new_user_registration_path %><br>
-<%= link_to "Login", new_user_session_path %>
+    </div>
+    
+    <div class="welcome_actions">
+      <%= link_to "Register", new_user_registration_path, :class => "button button-primary small", :id => "btn_register" %><br>
+      <%= link_to "Login", new_user_session_path, :class => "button button-primary small", :id => "btn_login" %>
+    </div> <!-- /.welcome_links --> 
+    
+    
+  </div> <!-- /#welcome_content -->
+  
+  <div id="welcome_foot">
+    <div class="daily_inspiration">
+      <h4><%= @daily_title %></h4>
+      <span class="daily_scripture"><%= @daily_scripture %></span>
+    </div>
+    
+    <div class="daily_message">      
+      <div class="container">        
+        <%= image_tag "/assets/#{@daily_image}", class: "daily_image" %>
+      </div>      
+    </div><!-- /.daily_message -->
+  </div> <!-- /#welcome_foot -->
+
+</div>
+

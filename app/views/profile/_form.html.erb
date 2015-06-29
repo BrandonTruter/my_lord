@@ -1,0 +1,173 @@
+<div id="profile_form">
+  <%= form_for [@user, @profile] do |f| %>
+  
+    <div class="left_fields">
+      <div class="general_fields">
+        <div class="field">
+          <%= f.label :middle_name %>
+          <%= best_in_place @profile, :middle_name, :type => 'input', :classes => 'field_value', :path => update_user_profile_path(@user, @profile) %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :language %>
+          <%= best_in_place @profile, :language, :type => 'input', :classes => 'field_value', :path => update_user_profile_path(@user, @profile) %>
+        </div>
+        
+        <div class="field">        
+          <%= f.label :phone %>
+          <%= best_in_place @profile, :phone, :type => 'input', :classes => 'field_value', :path => update_user_profile_path(@user, @profile) %>
+        </div>
+        
+        <div class="field">        
+          <%= f.label :gender %>
+          <%= best_in_place @profile, :gender, :type => 'input', :classes => 'field_value', :path => update_user_profile_path(@user, @profile) %>
+        </div>
+        
+        <div class="field">        
+          <%= f.label :date_of_birth %><%= f.text_field :date_of_birth %>
+        </div>
+        
+      </div>
+  
+      <div class="employment_fields">
+        <%= f.label :qualifications %><%= f.text_field :qualifications %>
+        <%= f.label :net_salary %><%= f.text_field :net_salary %>
+        <%= f.label :company %><%= f.text_field :company %>
+        <%= f.label :position %><%= f.text_field :position %>
+        <%= f.label :occupation %><%= f.text_field :occupation %>
+      </div>
+    </div>
+  
+    <div class="center_fields">
+      <div class="spouse_fields">
+        <%= f.label :married %><%= f.text_field :married %>
+        <%= f.label :family_size %><%= f.text_field :family_size %>
+        <%= f.label :spouse_first_name %><%= f.text_field :spouse_first_name %>
+        <%= f.label :spouse_last_name %><%= f.text_field :spouse_last_name %>
+        <%= f.label :spouse_occupation %><%= f.text_field :spouse_occupation %>
+      </div>      
+  
+      <div class="action_fields">
+        <%= f.submit "Save" %>
+      </div>
+    </div>
+    
+    <div class="right_fields">
+    
+      <div class="address_fields">
+        <div>
+          <%= label_tag :address_search %>
+          <a href="#" id="address-tip" class="info-icon"><i class="ss-icon">info</i></a>
+          <%= text_field_tag :address_search, "", :class=>"textfield" %>
+        </div>
+      
+        <div>
+          <%= f.label :street_number, "Street Number" %>
+          <%= f.text_field :street_number, :class=>"textfield", "data-geo" => "street_number" %>
+        </div>
+
+        <div>
+          <%= f.label :street_name, "Street Name" %>
+          <%= f.text_field :street_name, :class => "textfield", "data-geo" => "route" %>
+        </div>
+    
+        <div>
+          <%= f.label :suburb, "Suburb" %>
+          <%= f.text_field :suburb, :class => "textfield", "data-geo" => "sublocality" %>
+        </div>
+
+        <div>
+          <%= f.label :city, "City" %>
+          <%= f.text_field :city, :class => "textfield", "data-geo" => "locality" %>
+        </div>
+
+        <div>
+          <%= f.label :province, "Province" %>
+          <%= f.text_field :province, :class => "text_field", "data-geo" => "administrative_area_level_1" %>
+        </div>
+
+        <div>
+          <%= f.label :postal_code, "Postal Code" %>
+          <%= f.text_field :postal_code, :class=>"textfield", "data-geo" => "postal_code" %>
+        </div>
+      </div>
+      
+      <div class="links">
+          <%= link_to "Back", :back, class: "button button-primary tiny" %>
+          <%= link_to "Home", root_path, class: "button button-primary tiny" %>
+          <%= link_to "Upload", "/", class: "button button-primary tiny" %>
+      </div>
+      
+    </div>
+    
+  <% end %>
+</div>
+
+  
+<script type='text/javascript' charset='utf-8' >
+  $(document).ready(function () {
+    
+    $("li.subscribers").live('hover', function() {
+      $(this).tipTip({maxWidth: "auto", defaultPosition: "top", delay: 0});
+    });
+    
+    $("li.account_numbers").live('hover', function() {
+      $(this).tipTip({maxWidth: "auto", defaultPosition: "left", delay: 0});
+    });
+    
+    $("li.debt_status").live('hover', function() {
+      $(this).tipTip({maxWidth: "auto", defaultPosition: "top", delay: 0});
+    });    
+	
+	 $('.field_value').live('mouseenter', function () {
+		 $(this).css({'font-size': '18px', 'text-decoration': 'underline', 'font-weight': '700'});          
+	 }).live('mouseout', function () {
+		 $(this).css({'font-size': '14px', 'text-decoration': 'none', 'font-weight': 'normal'});
+	 }).live('focus', function () {
+		 $('#debts-notice').show().css({ 'font-size':'22px', 'color':'grey','font-weight':'400'  }).html('<b>Note:</b>  <i> Currently editing your instalment . . . .</i>');
+	 }).live('blur', function () {
+		 $('#debts-notice').show().css({ 'font-size':'20px', 'color':'grey','font-weight':'400'  }).html('<b>Note</b>: <i>You can click on any of your <ins>instalments</ins> to <ins>update</ins> the amount.</i>');
+		 
+	 }).bind("ajax:success", function(){ 
+   $("#debts-notice").css({'font-weight': 'lighter', 'color' : 'green', 'font-size':'22px'}).html('Successfully saved ... <span style="color:lightslategrey; padding-left:7px; font-weight:500; font-size:19px;"> New installment:  <big><ins>R '+$(this).html() + '</ins></big></span>');     
+   setTimeout("$(this).css({'font-size': '18px', 'text-decoration': 'underline', 'font-weight': '700'}); $('#debts-notice').css({ 'font-size':'20px', 'color':'grey','font-weight':'400'  }).html('<b><ins><em>Note</em></ins></b>: <i>You can click on any of  your <em>instalments</em> to <ins>update</ins> the amount.');", 2000);
+ 
+ }).bind("ajax:error", function(){
+   $("#debts-notice").css({'color':'rgb(235, 100, 100)', 'font-size':'22px', 'font-weight':'300'}).html('Failed to save ... <i>Please provide a <b>valid</b> number</i>');
+   setTimeout('$("#debts-notice").html("<b><ins><em>Note</em></ins></b>: <i>You can click on any of your <em>instalments</em> to <ins>update</ins> the amount.").css({"color":"grey", "font-size":"20px", "font-weight":"400"});', 2500);
+	 }); 
+   
+   $("#open-fhm").fancybox({
+     'openEffect': 'elastic',
+     'closeEffect': 'fade',
+     'fitToView': false,
+     'autoSize': false,
+     'padding': 0,
+     'margin-Top': 20,
+     'closeClick': false,
+     'autoScale': false,
+     'scrolling': 'no',
+     'showCloseButton': true,
+     'transitionIn': 'fade',
+     'transitionOut': 'fade',
+     'overlayShow': true,
+     'overlayColor': '#00181A',
+     'overlayOpacity': 0.6,
+     'speedIn': 1000,
+     'autoDimensions': true,
+     'maxWidth': 500,
+     'maxHeight': 800,
+     'onClosed': function() {
+       parent.location.reload(true);
+     },
+     helpers: {
+       overlay: {
+         css: {
+           'background-color': '#012426'
+         }
+       }
+     }
+   });
+			
+  });
+</script>

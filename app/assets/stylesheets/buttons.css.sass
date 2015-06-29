@@ -1,0 +1,130 @@
+
+.button
+  padding: 15px 30px
+  @include radius(8px)
+  @include inline
+  font-size: 24px
+
+  &:hover
+    text-decoration: none
+  &.button-primary
+    background: #287bab
+    text-shadow: 0px 1px 1px #1f5f83
+    color: #ffffff
+    @include linear-background(#287bab, #1f5f83)
+    i
+      color: #ffffff
+      text-shadow: 0px 1px 1px #1f5f83
+    &:hover
+      @include linear-background(#1f5f83, #1f5f83)      
+      background-color: #1f5f83
+  &.button-secondary
+    background: #8dbf3c
+    color: #ffffff
+    text-shadow: 0px 1px 1px #709830
+    @include linear-background(#8dbf3c, #709830)
+    &:hover
+      @include linear-background(#709830, #709830)
+      background-color: #709830
+  &.button-viridian
+    background: #4fd192
+    color: #ffffff
+    text-shadow: 0px 1px 1px #58a982
+    @include linear-background(#4fd192, #58a982)
+    &:hover
+      @include linear-background(#58a982, #58a982)
+      background-color: #58a982
+
+  &.button-custom
+    color: #ffffff
+    text-shadow: 0 1px 1px #1a77a9
+    @include linear-background(#238ed0, #114765)
+    box-shadow: 1px 1px 2px #000000
+    &:hover
+      @include linear-background(#114765, #1f5f83)
+      background-color: #238ed0
+      
+  &.button-light
+    background: #dce8ef
+    color: #323232
+    border: #b4d2e4 1px solid
+    font-size: 14px
+    padding: 15px 30px
+    text-shadow: 0px 1px 1px #ffffff
+    i
+      color: #323232
+      text-shadow: 0px 1px 1px #ffffff
+    &:hover
+      background: #b4d2e4
+
+  &.button-red
+    background: #f8a3a3
+    color: #8c3333
+    border: #e48383 1px solid
+    font-size: 14px
+    padding: 15px 30px
+    text-shadow: 0px 1px 1px #ffffff
+    a
+      color: #8c3333
+  &.mega
+    padding: 25px 70px
+    font-size: 33px !important
+    font-weight: normal
+    text-shadow: 0px 1px 1px #134967
+  &.small
+    padding: 8px 27px
+    font-size: 14px !important
+    font-weight: normal
+    @include radius(3px)
+    
+  &.rounded
+    padding: 7px 30px
+    font-size: 15px !important
+    font-weight: normal
+    @include radius(10px)    
+    
+  &.mini
+    padding: 3px 15px
+    font-size: 13px !important
+    font-weight: normal
+    @include radius(3px)
+  &.medium
+    padding: 14px 30px
+.facebook-signin
+  @include inline
+  margin-bottom: 5px
+  
+  
+  
+.social-links
+  float: right
+  margin-top: 20px
+  background: #ededed
+  @include shadow(2px, 2px, 2px, #ccc)
+  @include radius(3px)
+  padding: 6px 10px
+  @include inline
+  position: relative
+  z-index: 0
+  font-size: 13px
+  margin-bottom: -4px
+  a.twitter
+    margin-right: 10px
+    border-right: #ccc solid 1px
+    padding-right: 10px
+    vertical-align: middle
+    &:before
+      content: url('icon-twitter.png')
+      vertical-align: middle
+      margin-right: 5px
+      @include inline
+  a.facebook
+    vertical-align: middle
+    border-right: #ccc solid 1px
+    padding-right: 10px
+    &:before
+      content: url('icon-facebook.png')
+      vertical-align: middle
+      margin-right: 5px
+      @include inline
+

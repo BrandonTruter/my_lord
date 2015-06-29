@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+      <title>My lord | <%= @page_title.nil? ? 'Welcome' : @page_title.to_s %></title>
+      <%= stylesheet_link_tag 'application' %>
+      <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tag %>
+  </head>
+  <body id="home">
+    
+    <!-- Head -->
+    <div id="header">
+      <div class="header-top"></div>
+      <div class="container">
+        <%= render :partial => 'layouts/menu_navigation' %>      
+      </div>
+    </div>
+    
+    <!-- Body -->
+    <div id="content">
+      <%= yield %>
+    </div>
+    
+    <!-- Foot -->
+    <div id="footer">
+      <div id="root_footer"></div>
+      
+      <div class="container">
+        <%= render :partial => 'layouts/footer_navigation' %>
+      </div>
+      
+      <div class="footer-inner"></div>   
+    </div>
+    
+    <div id="flash_notice">
+      <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<div class="menu">
+  
+  <ul id="nav">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Services", service_path %></li>
+    <li><a href="http://blog.6cents.co.za/" target="_blank">Blog</a></li>
+    <li><%= link_to "Contact", contact_path %></li>
+  </ul>
+      
+  <ul id="login">
+    <li><%= link_to "Signup", new_user_registration_path, :title => "Registration a new account", :id => "register" %></li>
+    <li><%= link_to "Login", new_user_session_path, :title => "Login using your credentials", :id => "login" %></li>
+  </ul>
+  
+</div>

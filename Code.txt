@@ -1,0 +1,4 @@
+
+<%= number_to_currency(credit_report_debt.balance, unit: 'R') %>
+<%= truncate(credit_report_debt.status.titleize, :length => 20) %>
+R <%= best_in_place credit_report_debt, :installment, :type => 'input', :classes => 'debt_amount', :path => "/relief_requests/#{@credit_report.id}/update_installment/#{credit_report_debt.id}" %>

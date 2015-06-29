@@ -2,6 +2,7 @@ class ScripturesController < ApplicationController
   before_action :find_user
   
   def index
+    @page_title = "My Scriptures"
     @scriptures = @user.scriptures.all
     @daily_verse = @user.scriptures.last.daily_verse unless @user.scriptures.empty?
   end
@@ -9,9 +10,11 @@ class ScripturesController < ApplicationController
   def show
     @scripture = @user.scriptures.find(params[:id])
     @scripture = @user.scriptures.last if @scripture.nil? && !@user.scriptures.empty?
+    @page_title = "Scripture: #{@scripture.title}"
   end
   
   def new
+    @page_title = "New Scriptures"
     @scripture = @user.scriptures.new
   end
   
@@ -27,6 +30,7 @@ class ScripturesController < ApplicationController
   
   def edit
     @scripture = @user.scriptures.find(params[:id])
+    @page_title = "Editing Scripture: #{@scripture.title}"
   end
   
   def update
