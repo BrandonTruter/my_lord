@@ -1,0 +1,505 @@
+
+<style type="text/css" media="screen">
+  /* Jacob Lett - https//BootstrapCreative.com - Reference / Refresh / Repetition */
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-backdrop {
+  background-color:#fff;
+    opacity:1!important;
+      border: 10px solid rgba(136, 136, 136, .4);
+  }
+
+  .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .modal-body {
+    text-align: center;
+  }
+
+  .modal-body form {
+    margin: 0 auto;
+    float: none;
+    width: 300px;
+  }
+
+  .modal-content .close {
+    opacity: 1;
+    font-size: 30px;
+  }
+
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+  }
+</style>
+
+
+<div class="container">
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  
+  
+  <div class="page-header">
+    <h1>Navbar with Full Screen Modal Search Form</h1>
+    
+    <!-- Default dropup button -->
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-secondary">Dropup</button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <!-- Dropdown menu links -->
+      </div>
+    </div>
+
+    <!-- Split dropup button -->
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-secondary">
+        Split dropup
+      </button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <!-- Dropdown menu links -->
+      </div>
+    </div>
+  </div><!--  /page-header  -->
+  
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default navbar-btn">
+         <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
+</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                  </div>
+                  <div class="modal-body">
+
+                    <h1>Search</h1>
+                    <form class="navbar-form " role="search">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="content">
+    
+    <h4>TABLES</h4>
+    
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <br />
+    <hr />
+    <br />
+    
+    <h4>FORMS</h4>
+    
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4" class="col-form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4" class="col-form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress" class="col-form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2" class="col-form-label">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity" class="col-form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState" class="col-form-label">State</label>
+          <select id="inputState" class="form-control">Choose</select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="col-form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Check me out
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+    
+  </div>
+
+  
+  <div class="dropdown">
+    <!-- Default dropup button -->
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-secondary">Dropup</button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <!-- Dropdown menu links -->
+      </div>
+    </div>
+
+    <!-- Split dropup button -->
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-secondary">
+        Split dropup
+      </button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <!-- Dropdown menu links -->
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="page-content">
+    <form class="container" id="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom01">First name</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">Last name</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">City</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom04">State</label>
+          <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">Zip</label>
+          <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger">Action</button>
+      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="container" id="top">
+    <div class="page-header">
+    <h1>Smooth Scroll to div ID or Name Anchor</h1>
+  </div><!--  /page-header  -->
+
+   
+   <a href="#comments" >Scroll to comments</a>
+   
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+
+   <div id="comments">
+   <h2>Comments section</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   </div>
+   <a href="#top" >To the top</a>
+</div>
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <small>Donec id elit non mi porta.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <small class="text-muted">Donec id elit non mi porta.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <small class="text-muted">Donec id elit non mi porta.</small>
+  </a>
+</div>
+
+
+
+
+<br />
+
+<div class="iconic">
+  <span class="oi oi-envelope-closed"></span>
+  <span class="oi oi-task"></span>
+
+  <span class="oi oi-account-login"></span>
+  <span class="oi oi-envelope-closed" title="envelope-closed" aria-hidden="true"></span>
+
+  <%= image_tag "svg/book.svg", :title => "book", :alt => "book", :class => "oi oi-book" %>
+</div>
+
+
+    <div id="accordion" role="tablist" aria-multiselectable="true"><div class="card">
+    	<div class="card-header" role="tab" id="headingOne">
+    	  <h5 class="mb-0">
+    	    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+    	      Collapsible Group Item #1
+    	    </a>
+    	  </h5>
+    	</div>
+
+    	<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="">
+    	  <div class="card-block">
+    	    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    	  </div>
+    	</div>
+    	</div>
+    	<div class="card">
+    	<div class="card-header" role="tab" id="headingTwo">
+    	  <h5 class="mb-0">
+    	    <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    	      Collapsible Group Item #2
+    	    </a>
+    	  </h5>
+    	</div>
+    	<div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="true" style="">
+    	  <div class="card-block">
+    	    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    	  </div>
+    	</div>
+    	</div></div>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+      $("a[href*=#]").click(function(event){     
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+      });
+   
+   
+  // document ready  
+  });
+</script>
+
+  <script type='text/javascript' charset='utf-8'>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      "use strict";
+      window.addEventListener("load", function() {
+        var form = document.getElementById("needs-validation");
+        form.addEventListener("submit", function(event) {
+          if (form.checkValidity() == false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+        }, false);
+      }, false);
+    }());
+  </script>

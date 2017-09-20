@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Mylord</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= @page_title.nil? ? "My Lord" : @page_title  %></title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
 
-<%= yield %>
-
-</body>
+    <footer class="footer">
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,803 @@
+
+<!-- LOGIN -->
+
+<style type="text/css" media="screen">
+
+  .back {
+    background: #e2e2e2;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  .div-center {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1em 2em;
+    border-bottom: 2px solid #ccc;
+    display: table;
+  }
+
+  div.content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+</style>
+
+
+<div class="back">
+  <div class="div-center">
+    <div class="content">
+      <h3>Login</h3>
+      <hr />
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <hr />
+        <button type="button" class="btn btn-link">Signup</button>
+        <button type="button" class="btn btn-link">Reset Password</button>
+      </form>
+    </div>
+  </span>
+</div>
+
+
+
+<!--   ====================================================================================   -->
+
+
+<!--     Remove Auto Truncation on Horizontal Definition Lists
+    
+The default horizontal definition list auto truncates the definition title which may not be ideal for usability. This customization removes that and adds some spacing below each definition item to it can breathe visually.
+
+-->
+
+<style type="text/css" media="screen">
+  @media (min-width: 768px) {
+    .dl-horizontal.dl-horizontal-notrunc dt {
+      float: left;
+      width: 160px;
+      overflow: visible;
+      clear: left;
+      text-align: left;
+      text-overflow: clip;
+      white-space: normal;
+    }
+  }
+
+  .dl-horizontal dd {
+    margin-bottom: .5em;
+  }
+</style>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Bootstrap 3 Horizontal Definition Lists</h1>
+  </div>
+  <!--  /page-header  -->
+
+
+  <h2>Auto truncated - default</h2>
+
+  <dl class="dl-horizontal">
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+  </dl>
+
+
+  <h2>No truncating</h2>
+
+  <dl class="dl-horizontal dl-horizontal-notrunc">
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dt>
+    <dd>Laudantium beatae, consectetur inventore quia nesciunt blanditiis facilis possimus, odit vero temporibus omnis necessitatibus iste doloremque! Iste nisi quod eveniet aliquid ducimus.</dd>
+  </dl>
+
+</div>
+
+
+<!--   ====================================================================================   -->
+
+
+<!--    Bootstrap Thank You Page Layout     -->
+
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
+  </p>
+</div>
+
+
+<!--   ====================================================================================   -->
+
+
+<!--    Responsive Image Slider     -->
+
+<div class="container">
+
+
+  <!-- Each carousel needs a unique ID -->
+  <div id="carousel-id" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img src="https://dummyimage.com/600x200/000/fff" alt="First slide" class="w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/600x200/ccc/000" alt="First slide" class="w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/600x200/000/fff" alt="First slide" class="w-100">
+      </div>
+    </div>
+
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <p class="text-xs-center">
+      <a class="" href="#carousel-id" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span> Previous
+      </a> 
+      <a class="l" href="#carousel-id" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span> Next
+      </a>
+    </p>
+    <!-- /.text-center -->
+  </div>
+<!-- /.carousel -->
+  
+</div>
+<!-- /.container -->
+
+
+
+
+<!--    Navbar with Full Screen Modal Search Form     -->
+
+<style type="text/css" media="screen">
+  /* Jacob Lett - https//BootstrapCreative.com - Reference / Refresh / Repetition */
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-backdrop {
+  background-color:#fff;
+    opacity:1!important;
+      border: 10px solid rgba(136, 136, 136, .4);
+  }
+
+  .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .modal-body {
+    text-align: center;
+  }
+
+  .modal-body form {
+    margin: 0 auto;
+    float: none;
+    width: 300px;
+  }
+
+  .modal-content .close {
+    opacity: 1;
+    font-size: 30px;
+  }
+
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+  }
+</style>
+
+<div class="container">
+    <div class="page-header">
+    <h1>Navbar with Full Screen Modal Search Form</h1>
+  </div><!--  /page-header  -->
+  
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default navbar-btn">
+         <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
+</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                  </div>
+                  <div class="modal-body">
+
+                    <h1>Search</h1>
+                    <form class="navbar-form " role="search">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+</div>
+
+
+
+<!--   ====================================================================================   -->
+
+
+
+<!--        Flicker Button on Page Load
+
+Sometimes you want grab a users attention to a button. This flicker animation is a subtle way of adding visual emphasis to a button.
+
+ -->
+
+<style type="text/css" media="screen">
+  /* Jacob Lett - https//BootstrapCreative.com - Reference / Refresh / Repetition */
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes example {
+
+  
+  }
+
+  /* Standard syntax */
+  @keyframes example {
+      0%   {border:3px solid gray;}
+      50%  {border:3px solid #fff;}
+      100% {border:3px solid gray;}
+  }
+
+  .btn {
+    border:3px solid gray;
+      position: relative;
+    animation-delay: 1s;
+      -webkit-animation-name: example; /* Chrome, Safari, Opera */
+      -webkit-animation-duration: .15s; /* Chrome, Safari, Opera */
+      -webkit-animation-iteration-count: 2; /* Chrome, Safari, Opera */
+      animation-name: example;
+      animation-duration: .15s;
+      animation-iteration-count: 2;
+  }
+</style>
+
+<div class="container">
+    <div class="page-header">
+    <h1>Animated Button on initial load</h1>
+  </div><!--  /page-header  -->
+
+  <a href="" class="btn btn-default">Click Here</a>
+</div>
+
+
+
+<!--   ====================================================================================   -->
+
+
+
+
+<!--         Show Bootstrap Dropdown on Hover Instead of Click
+
+  This jQuery script applies the default .open class to the .dropdown to show the drodpdown menu on hover instead of the click event.
+-->
+
+<div class="container">
+
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+  </div>
+  
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // executes when HTML-Document is loaded and DOM is ready
+  
+    // There is a little gap below the button so if you didn't have the timeout function delay it would remove the open class before you actually stop hovering the component. 
+  
+    //sets timer variable
+    var timer;
+  
+    // when the button and button menu are hovered
+    $('.dropdown button, .dropdown-menu').hover(function() {
+    
+      // Clears the time on hover to prevent a que or waiting for the delay to finish from a previous hover event
+      clearTimeout(timer);
+      // Add the class .open and show the menu
+      $('.dropdown').addClass('open');
+    
+    }, function() {
+    
+      // Sets the timer variable to run the timeout delay
+      timer = setTimeout(function() {
+        // remove the class .open and hide the submenu
+        $('.dropdown').removeClass("open");
+      }, 500);
+    
+    });
+
+    // document ready  
+  });
+</script>
+  
+
+
+
+<!--   ====================================================================================   -->
+  
+  
+  
+
+<!--     Row Background Color Full Width
+
+
+There is a design trend to have horizontal background colors with the content set to a max-width. The way I achieve this effect is using a section tag with a background color set to it.
+
+section.bg-primary > .container > .row > .col-sm-6
+
+-->
+
+<style type="text/css" media="screen">
+  section {padding:2rem;}
+  .bg-primary {background-color:#007aeb;color:#fff;}
+  .bg-gray {background-color:#cccccc;}
+</style>
+
+<h1>Section background colors</h1>
+
+<section class="bg-primary text-center">
+   <div class="container">
+
+
+      <h2>Design is improvement. Design is improvement.</h2>
+
+
+   </div>
+   <!-- /.container-->
+</section>
+
+<section>
+   <div class="container">
+      A short paragraph that is contained to a max width by a container. A short paragraph that is contained to a max width by a container. A short paragraph that is contained to a max width by a container. A short paragraph that is contained to a max width
+      by a container. A short paragraph that is contained to a max width by a container. A short paragraph that is contained to a max width by a container.
+   </div>
+</section>
+
+<section class="bg-gray text-center">
+   <div class="container">
+
+
+      <h2>Form follows function. Form follows function.</h2>
+
+
+   </div>
+   <!-- /.container-->
+</section>
+
+
+
+<!--   ====================================================================================   -->
+
+
+
+
+<!--    Apple Like Content Section – Image Vertical Centered Text     -->
+
+<div class="container">
+    <h1 class="text-center">Apple Like Content Section</h1>
+  
+  
+<!--  image left  -->
+    <div class="row">
+      <div class="col-md-6">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Imac_alu.png" alt="" class="w-100" />
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-md-6">
+
+        
+        <div class="row align-items-center h-100">
+          <div class="col">
+          <h1 class="display-3">Vertically Centered Text</h1>
+            <p class="lead">Flexbox grids help you build some really nice layouts.
+            <br /><br />
+            <a href="" class="">Learn More</a>
+            </p>
+            
+          </div>
+        </div>
+        
+        
+      </div>
+      <!-- /.col-md-6 -->
+
+      
+    </div>
+    <!-- /.row -->
+  
+  
+  <!--  image right  -->
+    <div class="row">
+      <div class="col-md-6 push-md-6">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Imac_alu.png" alt="" class="w-100" />
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-md-6 pull-md-6">
+
+        
+        <div class="row align-items-center h-100">
+          <div class="col">
+          <h1 class="display-3">Vertically Centered Text</h1>
+            <p class="lead">Push and pull classes were added to change the order on desktop but still have the image before the text on mobile.
+            <br /><br />
+            <a href="" class="">Learn More</a>
+            </p>
+            
+          </div>
+        </div>
+        
+        
+      </div>
+      <!-- /.col-md-6 -->
+
+      
+    </div>
+    <!-- /.row -->
+  
+  
+  
+  
+</div>
+
+
+
+
+<!--   ====================================================================================   -->
+
+
+
+
+
+<!--    CONTACT US     -->
+
+<div class="container">
+  <form>
+    <h2>Contact Us</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">First Name</label>
+          <input type="text" class="form-control" placeholder="" id="first">
+        </div>
+      </div>
+      <!--  col-md-6   -->
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="last">Last Name</label>
+          <input type="text" class="form-control" placeholder="" id="last">
+        </div>
+      </div>
+      <!--  col-md-6   -->
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" class="form-control" placeholder="" id="company">
+        </div>
+
+
+      </div>
+      <!--  col-md-6   -->
+
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" placeholder="phone">
+        </div>
+      </div>
+      <!--  col-md-6   -->
+    </div>
+    <!--  row   -->
+
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="email">
+        </div>
+      </div>
+      <!--  col-md-6   -->
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="url">Your Website <small>Please include http://</small></label>
+          <input type="url" class="form-control" id="url" placeholder="url">
+        </div>
+
+      </div>
+      <!--  col-md-6   -->
+    </div>
+    <!--  row   -->
+
+
+    <label for="contact-preference">When is the best time of day to reach you?</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="contact-preference" id="contact-preference" value="am" checked>Morning
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="contact-preference" id="contact-preference" value="pm" checked>Evening
+      </label>
+    </div>
+
+    <label for="newsletter">Would you like to recieve our email newsletter?</label>
+    <div class="checkbox">
+
+      <label>
+        <input type="checkbox" value="Sure!" id="newsletter"> Sure!
+      </label>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+
+
+
+<!--   ====================================================================================   -->
+
+
+
+
+<!--    Smooth Scroll to div ID or Name Anchor    
+
+Add a class name of .scroll to slowly scroll the page down to the targeted section.
+
+ -->
+
+<div class="container" id="top">
+    <div class="page-header">
+    <h1>Smooth Scroll to div ID or Name Anchor</h1>
+  </div><!--  /page-header  -->
+
+   
+   <a href="#comments" >Scroll to comments</a>
+   
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+
+   <div id="comments">
+   <h2>Comments section</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga dolore voluptas sint cupiditate, necessitatibus distinctio voluptatum atque inventore maxime sequi provident, repudiandae nisi nam ullam voluptatibus dolorum, debitis maiores.</p>
+   </div>
+   <a href="#top" >To the top</a>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+      $("a[href*=#]").click(function(event){     
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+      });
+   
+   
+  // document ready  
+  });
+</script>
+
+
+
+
+<!--   ====================================================================================   -->
+
+
+<!-- FORMS WITH VALIDATIONS -->
+
+
+<form class="container" id="needs-validation" novalidate>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom01">First name</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom02">Last name</label>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">City</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">State</label>
+      <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom05">Zip</label>
+      <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+      <div class="invalid-feedback">
+        Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  "use strict";
+  window.addEventListener("load", function() {
+    var form = document.getElementById("needs-validation");
+    form.addEventListener("submit", function(event) {
+      if (form.checkValidity() == false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    }, false);
+  }, false);
+}());
+</script>
+
+

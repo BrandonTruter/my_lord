@@ -57,6 +57,15 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  root 'welcome#index'
+  
+  get 'home/login' => 'home#login', as: :login
+  
+  get 'home/about' => 'home#about', as: :about
+  get 'home/contact' => 'home#contact', as: :contact
+  
+  get 'home/first_page' => 'home#first_page'
+  get 'home/second_page' => 'home#second_page'
+  
+  root 'home#welcome'
   
 end

@@ -1,0 +1,11 @@
+<nav class="breadcrumb">
+  <span class="breadcrumb-item">Brand</span>
+  <a class="breadcrumb-item <%= 'active' if @current_page == 'home' %>" href="#">Home</a>
+  <% if @current_page == 'home' %>
+    <span class="breadcrumb-item">Home</span>
+  <% elsif @current_page == 'contact' %>
+    <span class="breadcrumb-item">contact</span>
+  <% elsif @current_page == 'about' %>
+    <span class="breadcrumb-item">About</span>
+  <% end %>
+</nav>

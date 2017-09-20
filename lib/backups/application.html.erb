@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @page_title.nil? ? "My Lord" : @page_title  %></title>
+    
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%#= stylesheet_link_tag 'open-iconic-bootstrap' %>
+    <%#= stylesheet_link_tag 'open-iconic' %>
+    
+    <%= stylesheet_link_tag 'open-iconic-bootstrap' %>
+    <%= stylesheet_link_tag 'bootstrap.min' %>    
+    <%= stylesheet_link_tag 'application' %>
+    
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'jquery-3.2.1.slim.min' %>
+    <%= javascript_include_tag 'popper.min' %>
+    <%= javascript_include_tag 'bootstrap.min' %>
+    
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    
+    <header class="header">
+      <%= render 'layouts/header' %>
+    </header>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+    
+  </body>
+</html>

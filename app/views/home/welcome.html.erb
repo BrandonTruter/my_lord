@@ -1,3 +1,189 @@
-<h1>WELCOME</h1>
-<hr />
-<h4>My Lord App</h4>
+<div class="container" id="header">
+  <%= render 'layouts/crumbs', :locals => { :current_page => 'home'} %>
+</div>
+
+<div class="jumbotron">
+  
+  <h1 class="display-2">WELCOME</h1>
+  <h1 class="display-3">Shalom</h1>
+  <p class="lead">This is a site dedicated to my LORD and SAVIOUR.</p>
+  <hr class="my-4">
+  <p>It's main purpose is to share my passion with others, encourage and convict christians to bring forth fruit</p>
+  
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
+    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+  </p>
+
+</div>
+
+
+<div class="jumbotron jumbotron-fluid" id="content">
+  <div class="container">
+    <h1 class="display-3">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies
+                    the entire horizontal space of its parent.</p>
+    <br />
+    <br />
+    
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+      
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+    	        Collapsible Group Item #1
+    	      </a>
+    	    </h5>
+    	  </div>
+      	<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="">
+      	  <div class="card-block">
+      	    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+      	  </div>
+      	</div>
+      </div>
+      
+    	<div class="card">
+      	<div class="card-header" role="tab" id="headingTwo">
+      	  <h5 class="mb-0">
+      	    <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      	      Collapsible Group Item #2
+      	    </a>
+      	  </h5>
+      	</div>
+        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="true" style="">
+      	  <div class="card-block">
+      	    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+      	  </div>
+      	</div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div>
+
+
+
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
+  </p>
+  
+  <br />
+  <hr />
+  
+  <div class="buttons">
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+  </div>
+  
+  <hr />
+  
+  <div class="tooltips">
+    <h6>Tooltips</h6>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+      Tooltip on top
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+      Tooltip on right
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+      Tooltip on bottom
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+      Tooltip on left
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+      Tooltip with HTML
+    </button>
+  </div>
+  
+  <hr />
+  
+  <div class="modals">
+    <h6>Modals</h6>
+    <br />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+  </div>
+  
+  <br />
+  
+</div>
+
+
+<script type='text/javascript' charset='utf-8'>
+  $(document).ready(function () {
+    
+    
+    $('#collapseOne, #collapseTwo').collapse();
+    
+    // $('.collapse').collapse();
+    
+    $('#example').tooltip();
+    
+    // $('#myModal').modal({keyboard: false});
+    
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').focus()
+    // })
+    
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('New message to ' + recipient)
+      modal.find('.modal-body input').val(recipient)
+    });
+    
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+

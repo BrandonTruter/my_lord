@@ -1,0 +1,70 @@
+
+
+# Other gems
+
+# gem 'wicked_pdf'
+# gem 'rmagick'
+# gem 'mail'
+# gem 'launchy'
+# gem 'mime-types'
+# gem 'stateflow'
+# gem 'sass'
+# gem 'sprockets', '2.11.0'
+# gem "compass-rails"
+# gem 'turbolinks'
+# gem 'letter_opener'
+
+
+# gem 'sass-rails', '4.0.2'
+# gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'sass-rails', '>= 3.2'
+
+# bootstrap-rails4 (2.3.2)
+# gem 'bootstrap', '~> 4.0.0.beta'
+
+# gem 'bootstrap', '4.0.0.alpha6'
+
+# gem 'bootstrap', '~> 4.0.0.beta'
+
+# gem 'sass-rails'
+
+
+
+gem 'digital_bible_platform'
+
+gem 'cskit-biblekjv'
+
+gem 'bible'
+
+
+
+
+gem search -r bible
+
+bible (1.0.1)
+bible_gateway (0.0.10)
+bible_parser (1.0.0)
+bible_passage (0.2.4)
+bible_ref (1.1.3)
+bible_reference_parser (0.1.4)
+bible_robot (0.12)
+biblesearch-api (1.2.0)
+cskit-biblekjv (2.0.1)
+digital_bible_platform (0.0.2)
+esvbible (0.0.1)
+gdagley-bible_gateway (0.0.2)
+nbibler-page_glimpse (0.0.5)
+nbibler-yahoo_site_explorer (0.0.2)
+rcv_bible (0.0.5)
+
+
+
+gem search -r kjv
+
+cskit-biblekjv (2.0.1)
+kjvarga-net-ssh (2.0.12)
+kjvarga-rack (1.0.0)
+
+
+
+
